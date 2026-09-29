@@ -165,7 +165,9 @@ function Navbar({
 
           <a
             className="navbar__launch"
-            href="#mining"
+            href="https://t.me/mai_accesstoken_bot"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <span>
               {t?.nav?.launchApp ??
