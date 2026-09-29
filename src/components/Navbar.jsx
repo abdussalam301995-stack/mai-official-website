@@ -238,7 +238,9 @@ function Navbar({
 
           <a
             className="mobile-menu__launch"
-            href="#mining"
+           href="https://t.me/mai_accesstoken_bot"
+target="_blank"
+rel="noopener noreferrer"
             onClick={() =>
               setMobileOpen(false)
             }
