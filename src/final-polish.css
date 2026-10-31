@@ -1,383 +1,183 @@
-/* MAI website: first-pass responsive and performance polish.
-   Loaded after legacy App.css so fixes remain isolated and reversible. */
+/* MAI Network — unified light gold visual system (mobile first).
+   Single small override replacing accumulated experimental polish overrides. */
 :root {
-  --mai-bg: #08090d;
-  --mai-bg-2: #101116;
-  --mai-text: #f8f5ee;
-  --mai-text-soft: #bdb8ad;
-  --mai-border: rgba(247,195,87,.16);
-  --mai-border-strong: rgba(247,195,87,.26);
-  --mai-gold: #edb747;
-  --mai-gold-bright: #f9cf74;
+  --mai-bg:#fffaf0; --mai-bg-2:#fff5df;
+  --mai-surface:#ffffff; --mai-surface-strong:#fffdf7;
+  --mai-text:#241b12; --mai-text-soft:#514b44;
+  --mai-gold:#cb8314; --mai-gold-bright:#b76a0a; --mai-orange:#e39823;
+  --mai-border:rgba(169,111,25,.20); --mai-border-strong:rgba(169,111,25,.32);
+  --mai-radius-lg:22px; --mai-radius-md:16px;
 }
-html { scroll-padding-top: 100px; }
-body { background-color: var(--mai-bg); }
-.mai-app { overflow-x: clip; }
-.mai-app section[id] { scroll-margin-top: 100px; }
-.mai-app section, .mai-app section > div { min-width: 0; }
-.mai-app :is(img,svg,video) { max-width: 100%; }
-.mai-app img { height: auto; }
-.mai-app :is(a,button):focus-visible {
-  outline: 2px solid var(--mai-gold-bright);
-  outline-offset: 4px;
-}
-/* Harmonize outer section backgrounds without resetting interior card treatments. */
-.mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,
-.roadmap-section,.updates-section,.whitepaper-section,.faq-section,
-.community,.security-section) {
-  background: linear-gradient(180deg,#08090d,#101116 50%,#08090d) !important;
-}
-@media (max-width: 920px) {
-  .navbar, .mobile-menu, .language-selector__menu {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background-color: rgba(9,12,20,.97);
-  }
-}
-@media (max-width: 760px) {
-  html { scroll-padding-top: 84px; }
-  .mai-app section[id] { scroll-margin-top: 84px; }
-  .hero { min-height: 0 !important; }
-  .hero__container, .hero__content, .hero__visual { min-width: 0; max-width: 100%; }
-  .hero__actions { max-width: 100%; }
-  /* The old -115px mobile offset could overlap the following section. */
-  #home .hero__contract {
-    position: relative !important;
-    inset: auto !important;
-    width: 100%;
-    max-width: 100%;
-    margin: 16px auto 0;
-  }
-  #home .hero__contract-copy, #home .hero__contract-address {
-    min-width: 0;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    word-break: break-all;
-  }
-}
-@media (max-width: 760px), (prefers-reduced-motion: reduce) {
-  .hero__grid, .hero__glow, .hero__stars span,
-  .mai-3d-orbit, .mai-orbit-light, .mai-particle,
-  .mai-3d-scene__energy, .mai-3d-scene__halo,
-  .mining-core-orbit, .mining-core-particle {
-    animation: none !important;
-  }
-  .hero__glow { filter: blur(36px); }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-
-/* Readable, consistent text rhythm and lean mobile spacing. */
-.mai-app :is(.hero__description,.about-section p,.mining-section p,.roadmap-section p,
-.tokenomics-section p,.whitepaper-section p,.faq-section p,.security-section p) {
-  line-height: 1.65;
-}
-@media (max-width: 760px) {
-  .mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,
-  .roadmap-section,.updates-section,.whitepaper-section,.faq-section,
-  .community,.security-section) {
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
-  }
-  .hero__title { text-wrap: balance; }
-  .hero__description { text-wrap: pretty; }
-  .hero__actions > a { min-width: 0; }
-  .hero__glow { opacity: .12; }
-  .mai-hero-logo { object-fit: contain; }
-}
-@media (max-width: 380px) {
-  .navbar__brand-text span { letter-spacing: .12em; }
-  .navbar__actions { gap: 6px; }
-}
-
-/* Screenshot QA 2026-10-31: contract clipping, blank mobile cards, color islands. */
-#home .hero__visual { display: flex; flex-direction: column; align-items: center; }
-#home .hero__contract {
-  position: relative !important;
-  inset: auto !important;
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  transform: none !important;
-  z-index: 4;
-  width: min(100%, 540px);
-  max-width: 100%;
-  margin: 12px auto 0;
-}
-#home .hero__contract-copy { width: 100%; min-width: 0; }
-#home .hero__contract-address { min-width: 0; overflow-wrap: anywhere; word-break: break-all; }
-@media (max-width: 760px) {
-  #home .hero__visual { overflow: visible; width: 100%; }
-  #home .mai-3d-scene {
-    width: 100%;
-    max-width: 100%;
-    min-height: 310px !important;
-    height: 310px !important;
-    margin: 0 auto !important;
-    overflow: hidden;
-  }
-  #home .hero__contract {
-    width: 100% !important;
-    margin: 12px auto 28px !important;
-    padding: 15px !important;
-  }
-  #home .hero__contract-copy { display: flex; gap: 8px; align-items: center; }
-  #home .hero__contract-address { flex: 1 1 auto; font-size: 11px; line-height: 1.5; }
-  #home .hero__contract-copy-action { flex: 0 0 auto; }
-  #home .hero__network-info { max-width: 100%; }
-  .process-card { min-height: 0 !important; height: auto !important; padding-bottom: 26px !important; }
-  .process-grid { align-items: stretch; }
-  .mining-stats, .tokenomics-stats { height: auto !important; min-height: 0 !important; }
-  .whitepaper-main-card, .whitepaper-main-content { min-height: 0 !important; }
-  .whitepaper-document-visual { max-width: 100%; overflow: hidden; }
-  .whitepaper-document-wrapper { max-width: 100%; }
-  .mai-app :is(.mining-intro-card,.mining-allocation-card,.process-card,
-  .tokenomics-supply,.token-allocation-card,.tokenomics-stats,
-  .whitepaper-main-card,.whitepaper-topic-card,.whitepaper-vision,
-  .roadmap-card,.faq-card) {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-}
-/* MAI gold accents must remain consistent even for prior mint-green overrides. */
-.mai-app :is(.whitepaper-heading h2 span,.whitepaper-document-label,
-.whitepaper-document-top span,.whitepaper-topic-icon,.whitepaper-topic-svg,
-.whitepaper-summary-heading .section-label,.whitepaper-document-logo,
-.whitepaper-vision h3 span,.whitepaper-token-summary .section-label) {
-  color: var(--mai-gold-bright) !important;
-}
-.mai-app :is(.whitepaper-visual-glow,.whitepaper-summary-glow,.whitepaper-topic-glow) {
-  opacity: .35;
-}
-
-/* MAI final mobile correction: bright gold brand, crisp text, natural cards. */
-:root {
- --mai-bg:#080a10; --mai-bg-2:#101520; --mai-text:#fffaf1;
- --mai-text-soft:#d3d6df; --mai-gold:#ffbc35; --mai-gold-bright:#ffdb78;
- --mai-border:rgba(255,200,85,.28); --mai-border-strong:rgba(255,200,85,.44);
-}
-.mai-app { color:var(--mai-text); font-synthesis:none; -webkit-font-smoothing:antialiased; }
-.mai-app :is(p,li,small) { color:var(--mai-text-soft); line-height:1.65; }
-.mai-app :is(h1,h2,h3,h4) { letter-spacing:-.025em; line-height:1.16; }
+html { scroll-behavior:smooth;scroll-padding-top:90px; }
+html,body,#root {height:auto !important;min-height:100% !important;max-height:none !important;overflow-y:visible !important;}
+body {background:#fffaf0 !important;color:#241b12 !important;overflow-x:clip !important;}
+.mai-app {height:auto !important;min-height:100vh;max-height:none !important;overflow:visible !important;background:#fffaf0 !important;color:#241b12 !important;}
+.mai-app section[id] {scroll-margin-top:90px;}
+.mai-app section {height:auto !important;max-height:none !important;min-width:0;}
+.mai-app section > div {min-width:0;max-width:100%;}
+.mai-app img,.mai-app svg {max-width:100%;}
+.mai-app :is(h1,h2,h3,h4) {color:#241b12 !important;line-height:1.18;letter-spacing:-.025em;text-wrap:balance;}
+.mai-app :is(p,small,li) {color:#514b44 !important;line-height:1.65;opacity:1;}
+.mai-app :is(a,button):focus-visible {outline:3px solid #e39823;outline-offset:3px;}
+/* One identical section background. */
 .mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,.roadmap-section,
 .updates-section,.whitepaper-section,.faq-section,.community,.security-section) {
- background:linear-gradient(180deg,#080a10 0%,#111622 55%,#080a10 100%) !important;
+  background:linear-gradient(180deg,#fffaf0 0%,#fff5df 50%,#fffaf0 100%) !important;
+  color:#241b12 !important;overflow:visible !important;isolation:isolate;
 }
-.mai-app :is(.whitepaper-title-gradient,.whitepaper-heading h2 span,.whitepaper-document-label,
-.whitepaper-document-top span,.whitepaper-topic-icon,.whitepaper-topic-svg,
-.whitepaper-document-logo,.whitepaper-vision h3 span,.whitepaper-summary-heading .section-label,
-.whitepaper-token-summary .section-label,.hero__title-gradient) {
- color:var(--mai-gold-bright) !important;
- background-image:none !important;
- -webkit-text-fill-color:var(--mai-gold-bright) !important;
+/* Light surfaces, consistent shadows and readable text. */
+.mai-app :is(.hero__network-item,.hero__contract,.about-card,.mining-intro-card,
+.mining-allocation-card,.process-card,.mining-stats,.tokenomics-supply,
+.tokenomics-visual,.token-allocation-card,.tokenomics-stats,.distribution-summary,
+.roadmap-card,.whitepaper-main-card,.whitepaper-topic-card,.whitepaper-token-summary,
+.whitepaper-transparency,.whitepaper-vision,.faq-card,.community-card,.security-card) {
+  background:linear-gradient(145deg,#ffffff,#fff8e9) !important;
+  color:#241b12 !important;border:1px solid rgba(169,111,25,.22) !important;
+  box-shadow:0 12px 32px rgba(90,61,25,.08) !important;
+  backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
 }
-.mai-app :is(.whitepaper-main-card,.whitepaper-topic-card,.whitepaper-token-summary,
-.whitepaper-vision,.whitepaper-transparency,.mining-intro-card,.mining-allocation-card,
-.process-card,.tokenomics-supply,.token-allocation-card,.tokenomics-stats,
-.distribution-summary) {
- background:linear-gradient(150deg,#171c2b,#0c101a) !important;
- border-color:var(--mai-border) !important;
+.mai-app :is(.hero__network-item,.hero__contract,.mining-intro-card,
+.mining-allocation-card,.process-card,.tokenomics-supply,.token-allocation-card,
+.tokenomics-stats,.distribution-summary,.whitepaper-main-card,.whitepaper-topic-card,
+.whitepaper-token-summary,.whitepaper-transparency,.whitepaper-vision) :is(h2,h3,h4,strong) {
+  color:#241b12 !important;-webkit-text-fill-color:currentColor !important;
 }
-.mai-app :is(.whitepaper-primary-button,.hero__button--primary) {
- background:linear-gradient(135deg,#ffe08a,#ffb52c) !important;
- color:#201503 !important; border-color:#ffd16a !important;
+.mai-app :is(.hero__title-gradient,.about-heading h2 span,.mining-heading h2 span,
+.tokenomics-heading h2 span,.roadmap-heading h2 span,.whitepaper-heading h2 span,
+.whitepaper-title-gradient,.whitepaper-summary-heading h3 span,.faq-heading h2 span,
+.community__title span,.security-heading h2 span) {
+  color:#b76a0a !important;-webkit-text-fill-color:#b76a0a !important;background:none !important;
 }
-.mai-app :is(.whitepaper-primary-button,.hero__button--primary) :is(span,svg) { color:inherit !important; }
-@media(max-width:768px) {
+.mai-app :is(.section-label,.hero__eyebrow,.mining-card-kicker,
+.whitepaper-document-label,.whitepaper-heading-badge,.whitepaper-transparency-icon,
+.whitepaper-topic-icon,.whitepaper-topic-svg,.whitepaper-document-top span) {
+ color:#a45e07 !important;-webkit-text-fill-color:#a45e07 !important;
+}
+.mai-app :is(.hero__description,.mining-intro-content p,.process-card p,
+.whitepaper-main-content p,.whitepaper-summary-heading p,.whitepaper-topic-card p,
+.whitepaper-vision p,.whitepaper-transparency p) {color:#514b44 !important;opacity:1 !important;}
+/* Navigation retains MAI brand black/gold for reliable contrast. */
+.site-header {pointer-events:none;}
+.navbar,.mobile-menu,.language-selector__menu {
+ background:#20180f !important;border-color:rgba(255,204,112,.45) !important;
+ backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+}
+.navbar :is(.navbar__brand-text strong,.navbar__brand-text span,.navbar__links a,
+.language-selector__button,.mobile-toggle span) {color:#fff9ed !important;}
+.navbar__brand-text strong {-webkit-text-fill-color:#fff9ed !important;}
+.navbar__brand-text span {-webkit-text-fill-color:#ffcf69 !important;}
+.mai-app :is(.hero__button--primary,.whitepaper-primary-button,.navbar__launch) {
+ background:linear-gradient(135deg,#ffe393,#ffb82e) !important;color:#241708 !important;
+ box-shadow:0 8px 20px rgba(175,108,13,.16) !important;
+}
+.mai-app :is(.hero__button--primary,.whitepaper-primary-button) span {color:inherit !important;}
+/* Disable expensive, repeated full-page compositor layers. */
+.hero__glow,.mining-glow,.whitepaper-glow,.tokenomics-glow,
+.whitepaper-visual-glow,.whitepaper-summary-glow,.whitepaper-topic-glow {
+ display:none !important;
+}
+.hero__grid,.hero__stars span,.mai-particle,.mining-core-particle,
+.whitepaper-particles,.roadmap-particles {animation:none !important;}
+/* Decorative circles visible, but static on narrow devices. */
+.mai-3d-orbit,.mining-core-orbit {border-color:rgba(224,147,31,.35) !important;}
+/* Whitepaper token chart: real document flow, no overlap. */
+#whitepaper .whitepaper-distribution-bar,#whitepaper .whitepaper-supply {
+ display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+ position:relative !important;width:100% !important;height:auto !important;
+ min-height:0 !important;gap:12px !important;margin:20px 0 !important;
+ padding:0 !important;background:none !important;overflow:visible !important;
+}
+#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution,
+#whitepaper .whitepaper-supply > div:not(.whitepaper-supply-divider) {
+ position:relative !important;inset:auto !important;transform:none !important;
+ display:flex !important;flex-direction:column !important;justify-content:center !important;
+ align-items:center !important;gap:6px !important;opacity:1 !important;
+ visibility:visible !important;width:auto !important;height:auto !important;
+ min-height:92px !important;min-width:0 !important;padding:12px 8px !important;
+ background:#fff9eb !important;border:1px solid var(--mai-border) !important;
+ border-radius:14px !important;box-shadow:none !important;overflow:hidden !important;
+}
+#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution :is(strong,span),
+#whitepaper .whitepaper-supply > div:not(.whitepaper-supply-divider) :is(strong,span) {
+ display:block !important;position:static !important;transform:none !important;
+ opacity:1 !important;visibility:visible !important;width:auto !important;height:auto !important;
+ padding:0 !important;margin:0 !important;text-align:center !important;line-height:1.3 !important;
+ background:none !important;box-shadow:none !important;
+}
+#whitepaper .whitepaper-distribution-bar strong,#whitepaper .whitepaper-supply strong {
+ color:#a85e06 !important;-webkit-text-fill-color:#a85e06 !important;font-size:25px !important;
+}
+#whitepaper .whitepaper-distribution-bar span,#whitepaper .whitepaper-supply span {
+ color:#514b44 !important;-webkit-text-fill-color:#514b44 !important;font-size:12px !important;
+}
+#whitepaper .whitepaper-supply-divider {display:none !important;}
+#whitepaper .whitepaper-document {background:#fff7e6 !important;border-color:var(--mai-border) !important;}
+#whitepaper .whitepaper-document-center h4 {color:#241b12 !important;}
+#whitepaper .whitepaper-document-center p {color:#514b44 !important;}
+#whitepaper .whitepaper-orbit {border-color:rgba(190,119,18,.22) !important;animation:none !important;}
+#whitepaper :is(.whitepaper-energy-dot,.whitepaper-orbit-node) {background:#e9a32d !important;animation:none !important;}
+/* Prevent decorative elements from trapping scroll. */
+.mai-app :is(.whitepaper-vision,.whitepaper-section,.roadmap-section,.security-section,.faq-section,.community) {
+ max-height:none !important;overflow:visible !important;
+}
+@media(max-width:760px) {
+ html {scroll-padding-top:85px;}
+ .site-header {padding:8px !important;}
+ .navbar {height:62px !important;padding:0 12px !important;}
+ .mai-app section[id] {scroll-margin-top:85px;}
  .mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,.roadmap-section,
  .updates-section,.whitepaper-section,.faq-section,.community,.security-section) {
-   padding-left:16px !important; padding-right:16px !important;
+ padding-left:16px !important;padding-right:16px !important;
  }
- .process-grid { display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:16px !important; }
- .process-connector { display:none !important; }
- .process-card {
-   display:flex !important;flex-direction:column !important;align-items:flex-start !important;
-   justify-content:flex-start !important; height:auto !important; min-height:0 !important;
-   padding:24px 22px !important;overflow:hidden !important;gap:8px !important;
- }
+ .hero {min-height:0 !important;}
+ .hero__container {display:flex !important;flex-direction:column !important;gap:18px !important;}
+ .hero__content,.hero__visual {width:100% !important;min-width:0 !important;max-width:100% !important;}
+ .hero__title {font-size:clamp(34px,9vw,52px) !important;}
+ .hero__actions {display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:10px !important;}
+ .hero__actions a {width:100% !important;justify-content:center !important;}
+ #home .hero__visual {display:flex !important;flex-direction:column !important;overflow:visible !important;}
+ #home .mai-3d-scene {width:min(100%,340px) !important;height:330px !important;min-height:330px !important;
+ position:relative !important;margin:0 auto !important;overflow:visible !important;}
+ #home .mai-3d-orbit {animation:none !important;opacity:.65 !important;visibility:visible !important;}
+ #home .mai-3d-orbit--one {width:245px !important;height:245px !important;}
+ #home .mai-3d-orbit--two {width:290px !important;height:205px !important;}
+ #home .mai-3d-orbit--three {width:205px !important;height:290px !important;}
+ #home .hero__contract {position:relative !important;inset:auto !important;transform:none !important;
+ width:100% !important;margin:16px auto 26px !important;max-width:100% !important;}
+ #home .hero__contract-copy {width:100% !important;min-width:0 !important;display:flex !important;}
+ #home .hero__contract-address {min-width:0 !important;flex:1;overflow-wrap:anywhere;word-break:break-all;}
+ .mining-main-grid,.process-grid,.token-allocation-grid,.whitepaper-topics-grid {
+ display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:16px !important;}
+ .process-connector {display:none !important;}
+ .process-card {position:relative !important;display:flex !important;flex-direction:column !important;
+ align-items:flex-start !important;gap:10px !important;height:auto !important;min-height:0 !important;
+ padding:22px 20px !important;overflow:hidden !important;}
  .process-card > :is(.process-number,.process-icon,h4,p,.process-card__status) {
-   position:relative !important;inset:auto !important;transform:none !important;
-   opacity:1 !important;visibility:visible !important;filter:none !important;
-   z-index:3 !important;
- }
- .process-card > .process-card__glow,.process-card > .process-card__shine {
-   position:absolute !important;z-index:0 !important;pointer-events:none;
- }
- .process-card .process-icon { margin:6px 0 10px !important; }
- .process-card h4 {display:block !important;color:#fffaf1 !important;
-   font-size:clamp(22px,5.8vw,28px) !important;margin:4px 0 6px !important;
-   line-height:1.22 !important;}
- .process-card p {display:block !important;color:#d3d6df !important;
-   font-size:15px !important;line-height:1.65 !important;margin:0 !important;}
- .process-card .process-number {align-self:flex-end !important;font-size:15px !important;
-   margin-bottom:-30px !important;color:#ffd46d !important;}
- .process-card .process-card__status {margin-top:12px !important;}
- .mining-stats,.tokenomics-stats {height:auto !important; min-height:0 !important;}
- .mining-stats {display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    gap:12px !important;padding:18px !important;}
- .mining-stat {min-width:0 !important; padding:14px 8px !important;}
- .mining-stat :is(strong,span) {position:relative !important;opacity:1 !important;visibility:visible !important;}
- .stat-divider {display:none !important;}
- .whitepaper-main-card {padding:24px 18px !important;}
- .whitepaper-document-visual {max-width:100% !important; overflow:hidden !important;}
+ position:relative !important;inset:auto !important;transform:none !important;z-index:2 !important;
+ opacity:1 !important;visibility:visible !important;filter:none !important;}
+ .process-card h4 {display:block !important;font-size:24px !important;margin:4px 0 !important;}
+ .process-card p {display:block !important;font-size:15px !important;margin:0 !important;}
+ .process-card .process-number {align-self:flex-end !important;}
+ .mining-core-scene {width:min(100%,270px) !important;height:250px !important;min-height:250px !important;
+ margin:0 auto 20px !important;overflow:visible !important;}
+ .mining-core-orbit {animation:none !important;opacity:.8 !important;}
+ .whitepaper-main-card,.whitepaper-token-summary,.whitepaper-vision,.tokenomics-stats,.mining-stats {
+ height:auto !important;min-height:0 !important;}
+ #whitepaper .whitepaper-token-summary {padding:20px 15px !important;overflow:hidden !important;}
+ #whitepaper .whitepaper-distribution-bar,#whitepaper .whitepaper-supply {
+ grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;}
+ .whitepaper-document-visual {overflow:hidden !important;max-width:100% !important;}
  .whitepaper-document-wrapper {max-width:100% !important;}
  .whitepaper-actions {display:grid !important;grid-template-columns:1fr !important;gap:12px !important;}
  .whitepaper-actions a {width:100% !important;justify-content:center !important;}
- .whitepaper-glow,.whitepaper-visual-glow {opacity:.12 !important;}
- .whitepaper-orbit,.whitepaper-particles {animation:none !important;}
- .distribution-bar {display:flex !important;gap:5px !important;overflow:hidden !important;
-   border-radius:12px !important;height:54px !important;}
- .distribution-bar > div {position:relative !important;min-width:0 !important;
-   height:100% !important;display:flex !important;align-items:center !important;justify-content:center !important;
-   font-size:12px !important;overflow:hidden !important;}
- .distribution-bar .distribution-mining {background:#ffc34a !important;color:#201503 !important;}
- .distribution-bar .distribution-dex {background:#deaa3e !important;color:#201503 !important;}
- .distribution-bar .distribution-community {background:#ffe297 !important;color:#201503 !important;}
- .distribution-bar .distribution-founder {background:#b68430 !important;color:#fff !important;}
- .distribution-summary :is(.distribution-labels,.distribution-title) {color:var(--mai-text) !important;}
- .tokenomics-stat :is(strong,span) {position:relative !important;transform:none !important;opacity:1 !important;}
+ .whitepaper-vision {padding-top:28px !important;padding-bottom:28px !important;}
+ .tokenomics-stats,.mining-stats {display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:12px !important;}
+ .tokenomics-stat-divider,.stat-divider {display:none !important;}
+ .distribution-bar {display:flex !important;height:46px !important;overflow:hidden !important;border-radius:12px !important;}
+ .distribution-bar > div {position:relative !important;display:flex !important;align-items:center !important;
+ justify-content:center !important;min-width:0 !important;height:100% !important;font-size:11px !important;}
 }
-
-/* MAI unified design v2 — visual regression fixes from actual Android screenshots.
-   Scope to real section classes: override legacy mint panels and absolute bars. */
-:root {
- --mai-brand-bg:#080b12; --mai-brand-panel:#111827; --mai-brand-panel-2:#192133;
- --mai-brand-gold:#ffcc60; --mai-brand-cream:#fff9eb; --mai-brand-muted:#c7cad3;
- --mai-brand-outline:rgba(255,204,96,.25);
-}
-.mai-app { background:#080b12 !important; color:var(--mai-brand-cream) !important; }
-.mai-app :is(.whitepaper-section,.tokenomics-section,.mining-section,.hero,.about-section,
-.roadmap-section,.updates-section,.faq-section,.community,.security-section) {
- background:linear-gradient(180deg,#080b12,#111827 52%,#080b12) !important;
-}
-.mai-app :is(.whitepaper-main-card,.whitepaper-token-summary,.whitepaper-transparency,
-.whitepaper-vision,.whitepaper-topic-card,.whitepaper-document,
-.tokenomics-overview,.tokenomics-supply,.tokenomics-visual,.distribution-summary,
-.tokenomics-stats,.mining-intro-card,.mining-allocation-card,.process-card) {
- background:linear-gradient(145deg,#1a2334,#101622) !important;
- border:1px solid var(--mai-brand-outline) !important;
- box-shadow:0 16px 45px rgba(0,0,0,.24) !important;
-}
-.mai-app :is(.whitepaper-main-card-shine,.whitepaper-summary-glow,.whitepaper-visual-glow,
-.whitepaper-glow,.whitepaper-glow-left,.whitepaper-glow-right,
-.whitepaper-distribution-bar::before,.whitepaper-distribution-bar::after) {
- opacity:0 !important;pointer-events:none !important;
-}
-.mai-app :is(.whitepaper-heading-badge,.whitepaper-document-label,.whitepaper-meta,
-.whitepaper-status,.whitepaper-title-gradient,.whitepaper-heading h2 span,
-.whitepaper-transparency > div > span,.whitepaper-topic-icon,.whitepaper-topic-svg,
-.whitepaper-document-top span,.whitepaper-floating-data span,
-.whitepaper-document-logo,.whitepaper-vision h3 span,.whitepaper-summary-heading .section-label,
-.whitepaper-primary-button,.whitepaper-secondary-button) {
- --mai-accent:var(--mai-brand-gold);
-}
-.mai-app :is(.whitepaper-heading h2 span,.whitepaper-title-gradient,
-.whitepaper-summary-heading h3 span,.whitepaper-document-label,.whitepaper-meta,
-.whitepaper-topic-icon,.whitepaper-topic-svg,.whitepaper-transparency > div > span,
-.whitepaper-document-top span,.whitepaper-floating-data span,.whitepaper-vision h3 span) {
- color:var(--mai-brand-gold) !important;
- -webkit-text-fill-color:var(--mai-brand-gold) !important;
- background-image:none !important;
-}
-.mai-app :is(.whitepaper-heading p,.whitepaper-main-content p,
-.whitepaper-summary-heading p,.whitepaper-transparency p,.whitepaper-vision p,
-.whitepaper-topic-card p,.tokenomics-heading p,.mining-heading p,.process-card p) {
- color:var(--mai-brand-muted) !important;opacity:1 !important;
-}
-.mai-app :is(.whitepaper-primary-button,.whitepaper-secondary-button) {
- background:#1e2737 !important;color:var(--mai-brand-gold) !important;
- border:1px solid var(--mai-brand-outline) !important;
- box-shadow:none !important;
-}
-.mai-app .whitepaper-primary-button {
- background:linear-gradient(135deg,#ffe3a0,#ffbe3a) !important;
- color:#201704 !important;
-}
-/* Replace the broken animated distribution chart with ordinary cards.
-   The original 70/10/10/10 informational values are retained. */
-#whitepaper .whitepaper-distribution-bar {
- display:grid !important;
- grid-template-columns:repeat(4,minmax(0,1fr)) !important;
- position:relative !important;
- width:100% !important;
- max-width:100% !important;
- height:auto !important;
- min-height:0 !important;
- gap:10px !important;
- overflow:visible !important;
- margin:28px 0 20px !important;
- padding:0 !important;
- background:none !important;
- transform:none !important;
-}
-#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution {
- position:relative !important;inset:auto !important;
- transform:none !important;opacity:1 !important;visibility:visible !important;
- width:auto !important;min-width:0 !important;max-width:100% !important;
- height:auto !important;min-height:100px !important;
- display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
- gap:8px !important;padding:16px 8px !important;margin:0 !important;
- border-radius:16px !important;border:1px solid var(--mai-brand-outline) !important;
- background:linear-gradient(145deg,#242639,#181c2b) !important;
- box-shadow:none !important;animation:none !important;
- color:var(--mai-brand-cream) !important;
-}
-#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution :is(strong,span) {
- display:block !important;position:static !important;inset:auto !important;
- transform:none !important;opacity:1 !important;visibility:visible !important;
- height:auto !important;width:auto !important;max-width:100% !important;
- text-align:center !important;margin:0 !important;padding:0 !important;
- background:none !important;box-shadow:none !important;
- -webkit-text-fill-color:currentColor !important;
-}
-#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution strong {
- font-size:clamp(23px,3.6vw,36px) !important;line-height:1.1 !important;
- font-weight:800 !important;color:var(--mai-brand-gold) !important;
-}
-#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution span {
- color:var(--mai-brand-muted) !important;font-size:12px !important;line-height:1.3 !important;
-}
-#whitepaper .whitepaper-supply {
- display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;
- gap:10px !important;position:relative !important;width:100% !important;height:auto !important;
- border:0 !important;background:none !important;padding:0 !important;
-}
-#whitepaper .whitepaper-supply > div:not(.whitepaper-supply-divider) {
- display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
- position:relative !important;inset:auto !important;transform:none !important;
- min-width:0 !important;min-height:90px !important;
- background:#161e2e !important;border:1px solid var(--mai-brand-outline) !important;
- border-radius:14px !important;padding:12px 6px !important;
-}
-#whitepaper .whitepaper-supply-divider {display:none !important;}
-#whitepaper .whitepaper-supply :is(strong,span) {
- display:block !important;position:static !important;transform:none !important;
- width:auto !important;height:auto !important;margin:0 !important;opacity:1 !important;
- text-align:center !important;
-}
-#whitepaper .whitepaper-supply strong {color:var(--mai-brand-gold) !important;font-size:22px !important;}
-#whitepaper .whitepaper-supply span {color:var(--mai-brand-muted) !important;font-size:11px !important;}
-/* Recolor the CSS-only illustrated whitepaper without destroying its document. */
-#whitepaper :is(.whitepaper-visual-glow,.whitepaper-orbit,.whitepaper-logo-ring,.whitepaper-document-light,
-.whitepaper-document-shadow,.whitepaper-energy-dot,.whitepaper-orbit-node) {
- filter:none !important;box-shadow:none !important;animation:none !important;
-}
-#whitepaper .whitepaper-document {background:linear-gradient(150deg,#161e2b,#0c111c) !important;}
-#whitepaper .whitepaper-visual-glow {background:rgba(255,195,60,.09) !important;opacity:.3 !important;}
-#whitepaper :is(.whitepaper-orbit-node,.whitepaper-energy-dot) {background:var(--mai-brand-gold) !important;}
-#whitepaper .whitepaper-orbit {border-color:rgba(255,204,96,.24) !important;}
-@media(max-width:760px) {
- #whitepaper .whitepaper-token-summary {padding:25px 16px !important;overflow:hidden !important;}
- #whitepaper .whitepaper-distribution-bar,#whitepaper .whitepaper-supply {
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;
- }
- #whitepaper .whitepaper-distribution-bar > .whitepaper-distribution {
-  min-height:100px !important;padding:12px 8px !important;
- }
- #whitepaper .whitepaper-document-visual {overflow:hidden !important;}
- #whitepaper .whitepaper-main-card {padding:22px 16px !important;}
- #whitepaper .whitepaper-main-content {min-width:0 !important;}
- #whitepaper .whitepaper-summary-heading h3 {font-size:clamp(29px,7vw,43px) !important;line-height:1.15 !important;}
- #whitepaper .whitepaper-supply > div:not(.whitepaper-supply-divider) {min-height:85px !important;}
+@media(prefers-reduced-motion:reduce) {
+ html {scroll-behavior:auto;}
+ *,*::before,*::after {animation-duration:.01ms !important;transition-duration:.01ms !important;}
 }
