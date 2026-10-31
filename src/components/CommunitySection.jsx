@@ -42,11 +42,7 @@ const DEX_LINK =
 
 
 
-/*
-
-
-
-  Add the official links here later.
+/* Official social channels shared by the MAI Network owner. */
 
 
 
@@ -54,31 +50,11 @@ const DEX_LINK =
 
 
 
-  Example:
+const X_LINK = "https://x.com/MAINetwork";
 
 
 
-  const X_LINK = "https://x.com/your_account";
-
-
-
-  const YOUTUBE_LINK = "https://youtube.com/@your_channel";
-
-
-
-*/
-
-
-
-
-
-
-
-const X_LINK = "";
-
-
-
-const YOUTUBE_LINK = "";
+const YOUTUBE_LINK = "https://www.youtube.com/@MAINetwork-offical";
 
 
 
