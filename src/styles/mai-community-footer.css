@@ -96,7 +96,7 @@
 .security-trust-divider{display:none}
 /* Footer is the SAME cream scheme, never legacy dark navy. */
 .mai-footer{position:relative;overflow:hidden;padding:60px max(20px,env(safe-area-inset-left)) 25px;
- background:#fff5e5;border-top:1px solid #e7d1ad;color:var(--ink)}
+ background:var(--bg);border-top:1px solid #e7d1ad;color:var(--ink)}
 .mai-footer__container{width:min(1160px,100%);margin:auto}
 .mai-footer__top{display:grid;grid-template-columns:1.65fr .8fr .8fr;gap:35px}
 .mai-footer__brand{min-width:0}
