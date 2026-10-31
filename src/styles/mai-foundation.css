@@ -124,11 +124,31 @@ button{cursor:pointer}a{color:inherit}a,button{-webkit-tap-highlight-color:trans
  border:1px solid var(--stroke);background:var(--paper);color:var(--ink);text-align:center;
  transition:transform .18s ease,background-color .18s ease;
 }
-.mai-app :is(.hero__button--primary,.navbar__launch,.mobile-menu__launch,
-.community__access-button--primary,.faq-launch-button,.whitepaper-primary-button,
-.updates-telegram-button){
- background:linear-gradient(135deg,#ffe4a0,#f8bf52);color:#382309;border-color:#dfb16a;
+/* Single warm-yellow action style for ALL primary navigation/CTA links. */
+.mai-app :is(.hero__button,.navbar__launch,.mobile-menu__launch,
+.community__access-button,.faq-launch-button,.whitepaper-primary-button,
+.whitepaper-secondary-button,.updates-telegram-button,.security-source-link){
+ background:linear-gradient(135deg,#ffe4a0 0%,#ffda83 42%,#f8bf52 100%);
+ color:#382309;border-color:#dfb16a;
+ box-shadow:0 6px 15px rgba(168,110,28,.10);
 }
+.mai-app :is(.hero__button,.navbar__launch,.mobile-menu__launch,
+.community__access-button,.faq-launch-button,.whitepaper-primary-button,
+.whitepaper-secondary-button,.updates-telegram-button,.security-source-link) :is(span,svg){
+ color:inherit;
+}
+/* Smaller utility controls use the same amber family, without overpowering CTAs. */
+.mai-app :is(.language-selector__button,.mobile-toggle,.hero__contract-copy,
+.community-contract__address,.security-contract__address,.mai-footer__contract-copy){
+ background:#fff1d4;color:#452f14;border-color:#e6c891;
+}
+.mai-app :is(.language-selector__button,.mobile-toggle,.hero__contract-copy,
+.community-contract__address,.security-contract__address,.mai-footer__contract-copy):hover{
+ background:#ffe7ae;border-color:#d8ad5f;
+}
+.mai-app .faq-question{background:#fffaf0;color:var(--ink);}
+.mai-app .faq-item.is-open .faq-question{background:#fff0cd;}
+
 .mai-app :is(.hero__button,.navbar__launch,.mobile-menu__launch,.community__access-button,
 .updates-telegram-button,.faq-launch-button,.whitepaper-primary-button,
 .whitepaper-secondary-button,.security-source-link):hover{transform:translateY(-2px)}
