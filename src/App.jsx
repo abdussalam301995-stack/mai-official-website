@@ -21,6 +21,7 @@ import UpdatesSection from "./components/UpdatesSection";
 import Footer from "./components/Footer";
 
 import "./App.css";
+import "./final-polish.css";
 
 function App() {
   const [languageCode, setLanguageCode] = useState(() => {
