@@ -379,6 +379,8 @@ function Hero({ t }) {
               <img
                 src={maiLogo}
                 alt="MAI Network"
+                decoding="async"
+                fetchPriority="high"
                 className="mai-hero-logo"
               />
 
