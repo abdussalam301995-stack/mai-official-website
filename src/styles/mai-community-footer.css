@@ -194,9 +194,9 @@
  .updates-header,.updates-bottom{flex-direction:column;align-items:stretch}
  .updates-status{min-width:0}
  .whitepaper-main-card{gap:14px}
- .whitepaper-document-visual{min-height:310px}
- .whitepaper-document-wrapper{width:210px;height:285px}
- .whitepaper-document{padding:15px}
+ .whitepaper-document-visual{min-height:0;padding:26px 14px}
+ .whitepaper-document-wrapper{width:min(280px,90%);height:auto}
+ .whitepaper-document{min-height:355px;padding:19px}
  .whitepaper-actions{display:grid;grid-template-columns:1fr}
  .whitepaper-actions a{width:100%}
  .whitepaper-distribution-bar,.whitepaper-supply{grid-template-columns:repeat(2,minmax(0,1fr))}
