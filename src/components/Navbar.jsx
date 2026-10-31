@@ -22,10 +22,18 @@ function Navbar({
       }
     };
 
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        setLanguageOpen(false);
+        setMobileOpen(false);
+      }
+    };
     document.addEventListener("mousedown", closeLanguageMenu);
+    document.addEventListener("keydown", closeOnEscape);
 
     return () => {
       document.removeEventListener("mousedown", closeLanguageMenu);
+      document.removeEventListener("keydown", closeOnEscape);
     };
   }, []);
 
@@ -70,6 +78,8 @@ function Navbar({
             <img
               src={maiLogo}
               alt="MAI Network Logo"
+              width="45"
+              height="45"
             />
           </div>
 
@@ -98,6 +108,9 @@ function Navbar({
             <button
               type="button"
               className="language-selector__button"
+              aria-label="Choose language"
+              aria-haspopup="true"
+              aria-controls="mai-language-menu"
               onClick={() =>
                 setLanguageOpen((open) => !open)
               }
@@ -121,6 +134,7 @@ function Navbar({
             </button>
 
             <div
+              id="mai-language-menu"
               className={`language-selector__menu ${
                 languageOpen ? "open" : ""
               }`}
@@ -179,6 +193,8 @@ function Navbar({
 
           <button
             type="button"
+            aria-expanded={mobileOpen}
+            aria-controls="mai-mobile-menu"
             className={`mobile-toggle ${
               mobileOpen ? "open" : ""
             }`}
@@ -194,6 +210,7 @@ function Navbar({
         </div>
 
         <div
+          id="mai-mobile-menu"
           className={`mobile-menu ${
             mobileOpen ? "open" : ""
           }`}
