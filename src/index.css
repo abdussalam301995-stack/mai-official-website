@@ -1,16 +1,6 @@
-:root {
-  font-family: Inter, "Noto Sans Myanmar", "Noto Sans Arabic", "Segoe UI", Roboto, Arial, sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
-  background: #070604;
-}
-
-* { box-sizing: border-box; }
-html, body, #root { margin: 0; width: 100%; min-width: 0; min-height: 100%; }
-body { min-width: 320px; overflow-x: hidden; }
-button, input, textarea, select { font: inherit; }
-a { color: inherit; }
-p { margin: 0; }
+:root{font-family:Inter,"Noto Sans Myanmar","Noto Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light;background:#fffaf0; font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+*,*::before,*::after{box-sizing:border-box}
+html,body,#root{margin:0;width:100%;min-width:0;min-height:100%}
+body{min-width:320px;overflow-x:clip;background:#fffaf0}
+button,input,textarea,select{font:inherit}
+a{color:inherit}

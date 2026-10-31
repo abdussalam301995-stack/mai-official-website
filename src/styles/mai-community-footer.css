@@ -1,0 +1,248 @@
+/* MAI Network — FAQ / Community / Security / Footer / mobile breakpoints */
+/* FAQ accordion */
+.faq-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:20px;align-items:start}
+.faq-info-card{display:grid;gap:16px}
+.faq-info-eyebrow{color:var(--gold);font-size:12px;letter-spacing:.12em;font-weight:800}
+.faq-info-card h3{margin:0}
+.faq-info-card p{margin:0}
+.faq-info-divider{height:1px;background:var(--stroke)}
+.faq-info-stat{display:flex;align-items:center;gap:13px}
+.faq-info-stat-icon{width:43px;height:43px}
+.faq-launch-button{width:100%}
+.faq-list{display:grid;gap:10px}
+.faq-item{overflow:hidden;box-shadow:none}
+.faq-question{display:flex;align-items:center;gap:12px;text-align:left;padding:20px;width:100%;
+ background:none;border:0;color:var(--ink);font-weight:750}
+.faq-question-number{color:var(--gold);font-size:13px}
+.faq-question-text{flex:1;min-width:0;font-size:15px}
+.faq-toggle-icon{position:relative;display:inline-grid;place-items:center;flex:none;width:23px;height:23px}
+.faq-toggle-line{position:absolute;width:13px;height:2px;background:var(--gold);border-radius:2px}
+.faq-toggle-line--vertical{transform:rotate(90deg);transition:transform .18s}
+.faq-toggle-icon.is-open .faq-toggle-line--vertical{transform:rotate(0deg)}
+.faq-answer-wrapper{max-height:0;overflow:hidden;transition:max-height .23s ease}
+.faq-item.is-open .faq-answer-wrapper{max-height:800px}
+.faq-answer{padding:0 22px 19px 45px}
+.faq-answer-line{height:1px;background:var(--stroke);margin:0 0 13px}
+.faq-answer p{margin:0;font-size:14px}
+.faq-trust-strip{display:flex;gap:14px;flex-wrap:wrap;justify-content:space-around;padding:18px;margin-top:22px}
+.faq-trust-item{display:flex;align-items:center;gap:11px}
+.faq-trust-item strong,.faq-trust-item small{display:block}
+.faq-trust-divider{width:1px;background:var(--stroke)}
+/* Community */
+.community__layout{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start}
+.community__main{min-width:0}
+.community__section-label{margin-bottom:20px}
+.community__cards{display:grid;gap:11px}
+.community-card{display:flex;align-items:center;gap:13px;padding:17px 19px;text-decoration:none;min-width:0}
+.community-card__icon{width:47px;height:47px;flex:none}
+.community-card__icon svg{width:27px;height:27px}
+.community-card__content{min-width:0;flex:1}
+.community-card__content strong,.community-card__content small{display:block}
+.community-card__content strong{color:var(--ink)}
+.community-card__content small{color:var(--ink-soft)}
+.community-card__label{font-size:10px;color:var(--gold)}
+.community-card__arrow{margin-left:auto;color:var(--gold);font-size:22px}
+.community-card__status{font-size:11px;color:var(--gold)}
+.community__access{display:flex;flex-direction:column;gap:14px}
+.community__access-top{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:.1em}
+.community__access h3{margin:0}
+.community__access h3 span{color:var(--gold)}
+.community__access p{margin:0 0 7px}
+.community__access-button{width:100%}
+.community__verified{display:flex;gap:8px;align-items:center;color:var(--ink-soft)}
+.community-contract{display:grid;grid-template-columns:1fr 1.6fr;align-items:center;gap:20px;
+ padding:19px 23px;margin-top:24px}
+.community-contract__info{display:flex;gap:12px;align-items:center}
+.community-contract__info small,.community-contract__info strong{display:block}
+.community-contract__info small{font-size:11px;letter-spacing:.1em}
+.community-contract__address{width:100%;min-width:0;display:flex;align-items:center;justify-content:space-between;
+ gap:8px;background:#fff8e9;border:1px solid var(--stroke);border-radius:12px;color:var(--ink);padding:11px}
+.community-contract__address>span:first-child{flex:1;min-width:0;overflow:hidden;
+ text-overflow:ellipsis;white-space:nowrap;text-align:left;font-size:12px}
+.community-contract__copy{display:flex;align-items:center;gap:6px;color:var(--gold);font-weight:800}
+.community-contract__copy svg{width:20px;height:20px}
+/* Security */
+.security-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.security-official-card,.security-warning-card{display:flex;flex-direction:column;gap:16px}
+.security-card-top{display:flex;align-items:center;gap:13px}
+.security-card-top h3{margin:0}
+.security-card-top span,.security-warning-label{color:var(--gold);font-size:12px;font-weight:800}
+.security-card-description{margin:0}
+.security-source{padding:15px;background:#fff7e7;border:1px solid var(--stroke);
+ border-radius:14px;display:grid;gap:10px}
+.security-source__heading{display:flex;align-items:center;gap:10px;min-width:0}
+.security-source__heading>div{display:flex;flex-direction:column;align-items:flex-start;
+ gap:5px;min-width:0}
+.security-source__heading small{display:block;color:#776249;font-size:11px;
+ font-weight:700;line-height:1.35;letter-spacing:.075em}
+.security-source__heading strong{display:block;color:var(--ink);font-size:16px;
+ line-height:1.3;font-weight:800;overflow-wrap:anywhere}
+/* Actual markup: button.security-contract > span.address + span.copy.
+   Constrain the BUTTON itself; never allow the full jetton address to size the grid. */
+.security-contract{display:grid;grid-template-columns:minmax(0,1fr) auto;
+ align-items:center;gap:11px;width:100%;max-width:100%;min-width:0;
+ margin:0;padding:11px 12px;border:1px solid #e7c98f;border-radius:12px;
+ background:#fff0cc;color:#38280f;text-align:left;box-shadow:none;
+ font-family:inherit;line-height:1.4;cursor:pointer}
+.mai-app .security-contract__address{display:block;min-width:0;max-width:100%;
+ padding:0;margin:0;border:0;border-radius:0;background:transparent;
+ color:#47331a;font-size:13px;font-weight:650;line-height:1.45;
+ letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+ direction:ltr;text-align:left;font-variant-ligatures:none}
+.security-contract__copy{display:inline-flex;align-items:center;justify-content:center;
+ flex:none;min-width:46px;min-height:36px;padding:6px 8px;
+ border-radius:8px;background:#ffe2a5;color:#704308;font-size:13px;
+ font-weight:800;white-space:nowrap}
+.security-contract:hover{background:#ffe8b7;border-color:#dcb46f}
+.security-contract:focus-visible{outline:3px solid #aa6d18;outline-offset:3px}
+.security-contract.is-copied .security-contract__copy{background:#e7f4df;color:#37632c}
+.security-source-link{width:100%}
+.security-warning-divider{height:1px;background:var(--stroke)}
+.security-warning-list{display:grid;gap:12px}
+.security-warning-item{display:flex;align-items:flex-start;gap:13px}
+.security-warning-item>span{flex:none;width:30px;height:30px;border-radius:9px;
+ background:#fff0d1;color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:12px}
+.security-warning-item p{margin:0;font-size:14px}
+.security-safe-note{display:flex;align-items:center;gap:12px;border:1px solid var(--stroke);
+ background:#fff5df;padding:16px;border-radius:13px}
+.security-safe-note svg{width:27px;height:27px;flex:none;color:var(--gold)}
+.security-safe-note strong,.security-safe-note small{display:block}
+.security-safe-note strong{color:var(--ink)}
+.security-trust-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:19px;margin-top:23px}
+.security-trust-item{display:flex;gap:12px;align-items:center}
+.security-trust-item strong,.security-trust-item small{display:block}
+.security-trust-divider{display:none}
+/* Footer is the SAME cream scheme, never legacy dark navy. */
+.mai-footer{position:relative;overflow:hidden;padding:60px max(20px,env(safe-area-inset-left)) 25px;
+ background:var(--bg);border-top:1px solid #e7d1ad;color:var(--ink)}
+.mai-footer__container{width:min(1160px,100%);margin:auto}
+.mai-footer__top{display:grid;grid-template-columns:1.65fr .8fr .8fr;gap:35px}
+.mai-footer__brand{min-width:0}
+.mai-footer__logo-link{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mai-footer__logo{width:68px;height:68px;object-fit:contain}
+.mai-footer__brand-name{display:flex;flex-direction:column}
+.mai-footer__brand-name strong{font-size:29px;letter-spacing:.12em;color:var(--ink)}
+.mai-footer__brand-name span{font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--gold)}
+.mai-footer__description{color:var(--ink-soft);line-height:1.7;font-size:15px;max-width:440px;margin:17px 0}
+.mai-footer__network{display:flex;align-items:center;gap:12px;background:#fffaf1;
+ border:1px solid var(--stroke);border-radius:12px;padding:12px;max-width:350px}
+.mai-footer__network-dot,.mai-footer__contract-dot{width:9px;height:9px;border-radius:50%;background:#d9a241}
+.mai-footer__network strong,.mai-footer__network small{display:block}
+.mai-footer__network strong{color:var(--ink)}
+.mai-footer__network small{color:var(--ink-soft)}
+.mai-footer__column-title{font-size:12px;letter-spacing:.13em;font-weight:800;color:var(--gold);margin:12px 0 19px}
+.mai-footer__links{display:grid;gap:12px}
+.mai-footer__links a{text-decoration:none;color:#46392a;font-weight:650;font-size:14px}
+.mai-footer__links a:hover{color:var(--gold)}
+.mai-footer__coming-link{color:var(--ink-soft);font-size:14px;display:grid;gap:3px}
+.mai-footer__coming-link small{font-size:10px;letter-spacing:.07em}
+.mai-footer__contract{display:grid;grid-template-columns:1fr 1.6fr;align-items:center;
+ gap:16px;padding:18px;margin:31px 0;border:1px solid var(--stroke);border-radius:17px;background:#fffdf7}
+.mai-footer__contract-heading{display:flex;align-items:center;gap:12px}
+.mai-footer__contract-heading small,.mai-footer__contract-heading strong{display:block}
+.mai-footer__contract-heading small{font-size:11px;color:var(--gold);font-weight:800}
+.mai-footer__contract-heading strong{font-size:14px;color:var(--ink)}
+.mai-footer__contract-copy{width:100%;display:flex;align-items:center;gap:11px;
+ border:1px solid var(--stroke);border-radius:12px;padding:12px;background:#fff7e7;color:var(--ink)}
+.mai-footer__contract-address{flex:1;min-width:0;text-overflow:ellipsis;overflow:hidden;
+ white-space:nowrap;text-align:left;font-size:12px}
+.mai-footer__copy-button{flex:none;display:flex;align-items:center;gap:5px;
+ font-size:12px;font-weight:800;color:var(--gold)}
+.mai-footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;
+ flex-wrap:wrap;border-top:1px solid var(--stroke);padding-top:23px}
+.mai-footer__bottom p{color:var(--ink-soft);font-size:12px;margin:0}
+.mai-footer__bottom-center{display:flex;align-items:center;gap:8px}
+.mai-footer__bottom-center>span{width:7px;height:7px;border-radius:50%;background:var(--gold-bright)}
+/* Responsive design */
+@media(max-width:1130px){
+ .navbar__links{display:none}
+ .mobile-toggle{display:flex}
+ .navbar__launch{display:none!important}
+ .hero__container{gap:22px}
+ .token-allocation-grid,.process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:780px){
+ .site-header{padding:9px}
+ .navbar{min-height:63px;padding:8px 12px;border-radius:16px}
+ .navbar__logo{width:42px;height:42px}
+ .navbar__brand-text strong{font-size:17px}
+ .navbar__brand-text span{font-size:8px}
+ .mobile-toggle{width:40px;height:40px}
+ .language-selector__button{min-height:40px}
+ .mai-app section{padding:77px 16px 79px}
+ /* Bring Verification closer to the Community card without overlapping its content. */
+ .mai-app .community{padding-bottom:63px}
+ .mai-app .security-section{padding-top:46px}
+ .security-source{padding:13px;min-width:0}
+ .security-contract{grid-template-columns:minmax(0,1fr) auto;gap:8px;
+   padding:10px;max-width:100%}
+ .mai-app .security-contract__address{font-size:12px;line-height:1.45}
+ .security-contract__copy{min-height:34px;min-width:46px;padding:5px 8px;
+   font-size:12px}
+ .security-source__heading strong{font-size:15px}
+ .mai-app section[id]{scroll-margin-top:84px}
+ .mai-app h1{font-size:clamp(36px,9vw,55px)}
+ .mai-app h2{font-size:clamp(29px,7.3vw,40px)}
+ .mai-app h3{font-size:clamp(22px,5.7vw,30px)}
+ .mai-app p{font-size:15px}
+ .mai-app :is(.about-heading,.mining-heading,.tokenomics-heading,.roadmap-heading,.updates-heading,
+ .whitepaper-heading,.faq-heading,.community__heading,.security-heading){margin-bottom:27px}
+ .mai-app :is(.about-main-card,.about-info-card,.mining-intro-card,.mining-allocation-card,
+ .process-card,.tokenomics-supply,.tokenomics-visual,.token-allocation-card,.roadmap-card,
+ .roadmap-vision,.updates-card,.whitepaper-main-card,.whitepaper-topic-card,.whitepaper-token-summary,
+ .whitepaper-transparency,.whitepaper-vision,.faq-info-card,.community__access,
+ .security-official-card,.security-warning-card){padding:21px}
+ .hero{padding-top:115px!important;padding-bottom:75px!important}
+ .hero__container{grid-template-columns:minmax(0,1fr);gap:25px}
+ .hero__content{text-align:center}
+ .hero__description{max-width:580px;margin-left:auto;margin-right:auto}
+ .hero__actions{display:grid;grid-template-columns:1fr;gap:9px}
+ .hero__actions a{width:100%}
+ .hero__network-info{grid-template-columns:1fr}
+ .hero__network-item{padding:12px;justify-content:flex-start}
+ .hero__visual{width:100%}
+ .mai-3d-scene{width:min(100%,340px);max-height:340px;margin:auto}
+ .hero__contract{width:100%}
+ .hero__contract-address{font-size:11px}
+ .hero__contract-copy-action span{display:none}
+ .about-grid,.mining-main-grid,.tokenomics-overview,.roadmap-timeline,
+ .security-layout,.community__layout,.faq-layout,.whitepaper-main-card{grid-template-columns:minmax(0,1fr)}
+ .about-small-cards{grid-template-columns:minmax(0,1fr)}
+ .flow-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .flow-connector{display:none}
+ .mining-core-scene{height:220px}
+ .mining-stats,.tokenomics-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .token-allocation-grid,.process-grid,.updates-grid-cards,.whitepaper-topics-grid{
+ grid-template-columns:minmax(0,1fr)}
+ .process-card{gap:10px;min-height:0}
+ .tokenomics-ring-shell{min-height:210px}
+ .distribution-summary{padding:16px}
+ .distribution-bar{height:40px}
+ .distribution-bar>div{font-size:10px}
+ .updates-header,.updates-bottom{flex-direction:column;align-items:stretch}
+ .updates-status{min-width:0}
+ .whitepaper-main-card{gap:14px}
+ .whitepaper-document-visual{min-height:0;padding:26px 14px}
+ .whitepaper-document-wrapper{width:min(280px,90%);height:auto}
+ .whitepaper-document{min-height:355px;padding:19px}
+ .whitepaper-actions{display:grid;grid-template-columns:1fr}
+ .whitepaper-actions a{width:100%}
+ .whitepaper-distribution-bar,.whitepaper-supply{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .whitepaper-vision-flow>span{display:none}
+ .faq-trust-strip,.security-trust-strip{display:grid;grid-template-columns:1fr}
+ .faq-trust-divider{display:none}
+ .community-contract,.mai-footer__contract{grid-template-columns:minmax(0,1fr)}
+ .mai-footer{padding:43px 17px 25px}
+ .mai-footer__top{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}
+ .mai-footer__brand{grid-column:1/-1}
+ .mai-footer__bottom{display:grid;justify-content:start}
+}
+@media(max-width:380px){
+ .navbar__brand{gap:6px}
+ .navbar__brand-text strong{font-size:15px}
+ .navbar__brand-text span{letter-spacing:.1em}
+ .language-selector__button{padding:0 7px}
+ .mobile-toggle{width:36px}
+ .hero__contract-address{font-size:10px}
+ .whitepaper-distribution,.whitepaper-supply>div:not(.whitepaper-supply-divider){padding:12px 6px}
+}

@@ -308,15 +308,6 @@ const RoadmapSection = ({ t }) => {
               }`}
               key={phase.number}
             >
-              <div
-                className={`roadmap-marker roadmap-marker-${phase.number}`}
-              >
-                <span className="roadmap-marker-orbit"></span>
-
-                <RoadmapIcon name={phase.icon} />
-
-                <small>{phase.number}</small>
-              </div>
 
               <div className="roadmap-card">
                 <div className="roadmap-card-shine"></div>

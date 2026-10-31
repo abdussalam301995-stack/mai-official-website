@@ -1,0 +1,142 @@
+/* MAI FINAL TYPE TREATMENT — Bold Italic content / Bold upright headings.
+   Keep existing Cream & Gold palette, layout, icons and effects unchanged.
+   Loaded last so the policy applies consistently across ALL sections. */
+:root {
+  --mai-type-body: clamp(1rem, 1.3vw, 1.105rem);
+  --mai-type-button: 1rem;
+  --mai-type-label: .795rem;
+}
+.mai-app {
+  font-style: italic;
+  font-weight: 700;
+  /* Allow graceful italic fallback when a system font lacks an italic face. */
+  font-synthesis: style weight;
+}
+/* Body copy, cards, labels, footer, buttons, and small metadata all use
+   one clear Bold Italic treatment. Nested translated text inherits it. */
+.mai-app :is(
+  p, span, small, li, a, button, label, strong, b, em, time,
+  figcaption, dt, dd, summary, blockquote, th, td,
+  input, textarea, select, option
+) {
+  font-style: italic !important;
+  font-weight: 700 !important;
+}
+.mai-app :is(
+  .hero__network-text, .about-network-node, .flow-item,
+  .mining-stat, .tokenomics-stat, .allocation-amount,
+  .updates-status, .roadmap-flow-step, .whitepaper-meta,
+  .whitepaper-distribution, .whitepaper-supply,
+  .faq-trust-item, .security-source__heading, .security-trust-item,
+  .community-card__content, .mai-footer__network,
+  .mai-footer__contract-heading, .supply-meta > div
+) {
+  font-style: italic;
+  font-weight: 700;
+}
+/* Headers remain upright: all H1–H6 and ALL text nested in them.
+   The sticky navigation/header likewise retains its existing type style. */
+.mai-app :is(h1,h2,h3,h4,h5,h6),
+.mai-app :is(h1,h2,h3,h4,h5,h6) *,
+.mai-app .site-header,
+.mai-app .site-header * {
+  font-style: normal !important;
+}
+.mai-app :is(h1,h2,h3,h4,h5,h6),
+.mai-app :is(h1,h2,h3,h4,h5,h6) * {
+  font-weight: 800 !important;
+}
+/* Headings in semantic-free brand/title wrappers are also headers. */
+.mai-app :is(.mai-footer__brand-name,.mai-footer__brand-name *,
+.mai-footer__column-title,.hero__title,.hero__title *,
+.about-heading h2,.mining-heading h2,.tokenomics-heading h2,
+.roadmap-heading h2,.updates-heading h2,.whitepaper-heading h2,
+.faq-heading h2,.community__title,.security-heading h2) {
+  font-style: normal !important;
+  font-weight: 800 !important;
+}
+/* Keep paragraph hierarchy crisp with italic metrics and sufficient leading. */
+.mai-app p {
+  font-size: var(--mai-type-body);
+  line-height: 1.73;
+  letter-spacing: .005em;
+  overflow-wrap: break-word;
+}
+.mai-app :is(.hero__description,.about-heading p,.mining-heading p,
+.tokenomics-heading p,.roadmap-heading p,.updates-heading p,
+.whitepaper-heading p,.faq-heading p,.community__description,
+.security-heading p) {
+  line-height: 1.76;
+}
+.mai-app :is(.process-card p,.token-allocation-card p,
+.whitepaper-topic-card p,.roadmap-item p,.updates-card__content p,
+.security-warning-item p,.faq-answer p,.faq-info-card p,
+.whitepaper-main-content p,.community__access p) {
+  font-size: clamp(.96rem,1.15vw,1.06rem);
+  line-height: 1.68;
+}
+/* Buttons are legible, touch-friendly, with no color change. */
+.mai-app :is(.hero__button,.community__access-button,.navbar__launch,
+.mobile-menu__launch,.whitepaper-primary-button,.whitepaper-secondary-button,
+.faq-launch-button,.security-source-link,.updates-telegram-button) {
+  font-size: var(--mai-type-button);
+  font-weight: 800 !important;
+  line-height: 1.38;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+/* Make small content labels clearly readable without enlarging headings. */
+.mai-app :is(.hero__eyebrow,.hero__badge,.hero__contract-header,
+.about-heading__badge,.mining-heading__badge,.mining-card-kicker,
+.tokenomics-card-number,.roadmap-phase-label,.updates-badge,
+.whitepaper-heading-badge,.whitepaper-document-label,.faq-section-label,
+.community__eyebrow,.community__section-label,.security-badge,
+.security-warning-label,.mai-footer__contract-heading small,
+.mai-footer__bottom p) {
+  font-size: max(12px, var(--mai-type-label));
+  line-height: 1.5;
+}
+.mai-app :is(.hero__contract-hint,.whitepaper-document-version,
+.mai-footer__links a,.community-card__content small,
+.security-source__heading small,.supply-meta small) {
+  font-size: max(12px, .8rem);
+  line-height: 1.55;
+}
+/* Copyable identifiers are still truncated safely inside their mobile rows. */
+.mai-app :is(.hero__contract-address,.community-contract__address,
+.security-contract__address,.mai-footer__contract-address) {
+  min-width: 0;
+  font-variant-ligatures: none;
+}
+/* Natural scripts do not use Latin-style letter-spacing. */
+:lang(my) .mai-app :is(p,span,small,li,a,button),
+:lang(ar) .mai-app :is(p,span,small,li,a,button) {
+  letter-spacing: normal;
+}
+@media(max-width:780px) {
+  :root {
+    --mai-type-body: .99rem;
+    --mai-type-button: .98rem;
+    --mai-type-label: .77rem;
+  }
+  .mai-app p {line-height: 1.69;letter-spacing: 0;}
+  .mai-app :is(.process-card p,.token-allocation-card p,
+  .whitepaper-topic-card p,.roadmap-item p,.updates-card__content p,
+  .security-warning-item p,.faq-answer p,.faq-info-card p,
+  .whitepaper-main-content p,.community__access p) {
+    font-size: .965rem;
+    line-height: 1.66;
+  }
+  .mai-app :is(.hero__button,.community__access-button,
+  .whitepaper-primary-button,.whitepaper-secondary-button,
+  .faq-launch-button,.security-source-link) {min-height: 48px;}
+  .mai-app :is(.security-contract__address,.community-contract__address,
+  .hero__contract-address,.mai-footer__contract-address) {
+    font-size: 12px;
+  }
+}
+@media(max-width:380px) {
+  :root {--mai-type-body:.96rem;--mai-type-button:.93rem;}
+  .mai-app :is(.hero__badge,.roadmap-phase-label,
+  .whitepaper-document-label,.security-badge) {letter-spacing:.055em;}
+}

@@ -8,6 +8,10 @@ const MINING_APP_URL = "https://t.me/mai_accesstoken_bot";
 
 const TELEGRAM_URL = "https://t.me/MAI_News_Official";
 
+const X_URL = "https://x.com/MAINetwork";
+
+const YOUTUBE_URL = "https://www.youtube.com/@MAINetwork-offical";
+
 const BUY_MAI_URL =
   "https://app.tonkeeper.com/dapp/https%3A%2F%2Fdedust.io%2Fcoins%2FEQD5pWilwl9ypQ1JFxoDktsQl_LAALALnqHjZoxhx_2nET-r";
 
@@ -168,21 +172,23 @@ function Footer({ t }) {
                 <span>↗</span>
               </a>
 
-              <div className="mai-footer__coming-link">
-                <span>X</span>
+              <a
+                href={X_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                X
+                <span>↗</span>
+              </a>
 
-                <small>
-                  {footer.comingSoon ?? "COMING SOON"}
-                </small>
-              </div>
-
-              <div className="mai-footer__coming-link">
-                <span>YouTube</span>
-
-                <small>
-                  {footer.comingSoon ?? "COMING SOON"}
-                </small>
-              </div>
+              <a
+                href={YOUTUBE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YouTube
+                <span>↗</span>
+              </a>
             </div>
           </div>
         </div>
