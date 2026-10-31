@@ -70,14 +70,32 @@
 .security-card-description{margin:0}
 .security-source{padding:15px;background:#fff7e7;border:1px solid var(--stroke);
  border-radius:14px;display:grid;gap:10px}
-.security-source__heading{display:flex;align-items:center;gap:8px}
-.security-source__heading strong{color:var(--ink)}
-.security-contract__address{display:flex;align-items:center;gap:8px;width:100%;min-width:0;
- padding:12px;background:var(--paper);color:var(--ink);
- border:1px solid var(--stroke);border-radius:11px}
-.security-contract__address>span:first-child{flex:1;min-width:0;text-overflow:ellipsis;
- white-space:nowrap;overflow:hidden;text-align:left;font-size:12px}
-.security-contract__copy{flex:none;color:var(--gold);font-weight:750}
+.security-source__heading{display:flex;align-items:center;gap:10px;min-width:0}
+.security-source__heading>div{display:flex;flex-direction:column;align-items:flex-start;
+ gap:5px;min-width:0}
+.security-source__heading small{display:block;color:#776249;font-size:11px;
+ font-weight:700;line-height:1.35;letter-spacing:.075em}
+.security-source__heading strong{display:block;color:var(--ink);font-size:16px;
+ line-height:1.3;font-weight:800;overflow-wrap:anywhere}
+/* Actual markup: button.security-contract > span.address + span.copy.
+   Constrain the BUTTON itself; never allow the full jetton address to size the grid. */
+.security-contract{display:grid;grid-template-columns:minmax(0,1fr) auto;
+ align-items:center;gap:11px;width:100%;max-width:100%;min-width:0;
+ margin:0;padding:11px 12px;border:1px solid #e7c98f;border-radius:12px;
+ background:#fff0cc;color:#38280f;text-align:left;box-shadow:none;
+ font-family:inherit;line-height:1.4;cursor:pointer}
+.security-contract__address{display:block;min-width:0;max-width:100%;
+ padding:0;margin:0;border:0;border-radius:0;background:transparent;
+ color:#47331a;font-size:13px;font-weight:650;line-height:1.45;
+ letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+ direction:ltr;text-align:left;font-variant-ligatures:none}
+.security-contract__copy{display:inline-flex;align-items:center;justify-content:center;
+ flex:none;min-width:46px;min-height:36px;padding:6px 8px;
+ border-radius:8px;background:#ffe2a5;color:#704308;font-size:13px;
+ font-weight:800;white-space:nowrap}
+.security-contract:hover{background:#ffe8b7;border-color:#dcb46f}
+.security-contract:focus-visible{outline:3px solid #aa6d18;outline-offset:3px}
+.security-contract.is-copied .security-contract__copy{background:#e7f4df;color:#37632c}
 .security-source-link{width:100%}
 .security-warning-divider{height:1px;background:var(--stroke)}
 .security-warning-list{display:grid;gap:12px}
@@ -152,6 +170,16 @@
  .mobile-toggle{width:40px;height:40px}
  .language-selector__button{min-height:40px}
  .mai-app section{padding:77px 16px 79px}
+ /* Bring Verification closer to the Community card without overlapping its content. */
+ .mai-app .community{padding-bottom:63px}
+ .mai-app .security-section{padding-top:46px}
+ .security-source{padding:13px;min-width:0}
+ .security-contract{grid-template-columns:minmax(0,1fr) auto;gap:8px;
+   padding:10px;max-width:100%}
+ .security-contract__address{font-size:12px;line-height:1.45}
+ .security-contract__copy{min-height:34px;min-width:46px;padding:5px 8px;
+   font-size:12px}
+ .security-source__heading strong{font-size:15px}
  .mai-app section[id]{scroll-margin-top:84px}
  .mai-app h1{font-size:clamp(36px,9vw,55px)}
  .mai-app h2{font-size:clamp(29px,7.3vw,40px)}
