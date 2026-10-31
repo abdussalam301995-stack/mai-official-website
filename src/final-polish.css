@@ -67,3 +67,26 @@ body { background-color: var(--mai-bg); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Readable, consistent text rhythm and lean mobile spacing. */
+.mai-app :is(.hero__description,.about-section p,.mining-section p,.roadmap-section p,
+.tokenomics-section p,.whitepaper-section p,.faq-section p,.security-section p) {
+  line-height: 1.65;
+}
+@media (max-width: 760px) {
+  .mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,
+  .roadmap-section,.updates-section,.whitepaper-section,.faq-section,
+  .community,.security-section) {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .hero__title { text-wrap: balance; }
+  .hero__description { text-wrap: pretty; }
+  .hero__actions > a { min-width: 0; }
+  .hero__glow { opacity: .12; }
+  .mai-hero-logo { object-fit: contain; }
+}
+@media (max-width: 380px) {
+  .navbar__brand-text span { letter-spacing: .12em; }
+  .navbar__actions { gap: 6px; }
+}
