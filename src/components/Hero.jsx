@@ -391,50 +391,6 @@ function Hero({ t }) {
                 CONTRACT ADDRESS
             =============================================== */}
 
-            <div className="hero__contract">
-              <div className="hero__contract-glow"></div>
-
-              <div className="hero__contract-header">
-                <span className="hero__contract-dot"></span>
-
-                <span>
-                  {t?.hero?.contractAddress ??
-                    "MAI CONTRACT ADDRESS"}
-                </span>
-              </div>
-
-              <button
-                type="button"
-                className={`hero__contract-copy ${
-                  copied ? "is-copied" : ""
-                }`}
-                onClick={copyContractAddress}
-                aria-label="Copy MAI contract address"
-              >
-                <span className="hero__contract-address">
-                  {MAI_CONTRACT}
-                </span>
-
-                <span className="hero__contract-copy-action">
-                  <CopyIcon />
-
-                  <span>
-                    {copied
-                      ? t.hero.copied
-                      : t.hero.copy}
-                  </span>
-                </span>
-              </button>
-
-              <span className="hero__contract-hint">
-                {copied
-                  ? t?.hero?.contractCopiedHint ??
-                    "Contract address copied to clipboard"
-                  : t?.hero?.contractCopyHint ??
-                    "Tap to copy"}
-              </span>
-            </div>
-
             {/* ===============================================
                 HOLOGRAM BASE
             =============================================== */}
@@ -452,6 +408,50 @@ function Hero({ t }) {
               <div className="mai-hologram__core"></div>
             </div>
           </div>
+          <div className="hero__contract">
+            <div className="hero__contract-glow"></div>
+
+            <div className="hero__contract-header">
+              <span className="hero__contract-dot"></span>
+
+              <span>
+                {t?.hero?.contractAddress ??
+                  "MAI CONTRACT ADDRESS"}
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className={`hero__contract-copy ${
+                copied ? "is-copied" : ""
+              }`}
+              onClick={copyContractAddress}
+              aria-label="Copy MAI contract address"
+            >
+              <span className="hero__contract-address">
+                {MAI_CONTRACT}
+              </span>
+
+              <span className="hero__contract-copy-action">
+                <CopyIcon />
+
+                <span>
+                  {copied
+                    ? t.hero.copied
+                    : t.hero.copy}
+                </span>
+              </span>
+            </button>
+
+            <span className="hero__contract-hint">
+              {copied
+                ? t?.hero?.contractCopiedHint ??
+                  "Contract address copied to clipboard"
+                : t?.hero?.contractCopyHint ??
+                  "Tap to copy"}
+            </span>
+          </div>
+
         </div>
       </div>
 
