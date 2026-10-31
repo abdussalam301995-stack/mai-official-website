@@ -84,7 +84,7 @@
  margin:0;padding:11px 12px;border:1px solid #e7c98f;border-radius:12px;
  background:#fff0cc;color:#38280f;text-align:left;box-shadow:none;
  font-family:inherit;line-height:1.4;cursor:pointer}
-.security-contract__address{display:block;min-width:0;max-width:100%;
+.mai-app .security-contract__address{display:block;min-width:0;max-width:100%;
  padding:0;margin:0;border:0;border-radius:0;background:transparent;
  color:#47331a;font-size:13px;font-weight:650;line-height:1.45;
  letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -176,7 +176,7 @@
  .security-source{padding:13px;min-width:0}
  .security-contract{grid-template-columns:minmax(0,1fr) auto;gap:8px;
    padding:10px;max-width:100%}
- .security-contract__address{font-size:12px;line-height:1.45}
+ .mai-app .security-contract__address{font-size:12px;line-height:1.45}
  .security-contract__copy{min-height:34px;min-width:46px;padding:5px 8px;
    font-size:12px}
  .security-source__heading strong{font-size:15px}
