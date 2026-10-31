@@ -1,0 +1,69 @@
+/* MAI website: first-pass responsive and performance polish.
+   Loaded after legacy App.css so fixes remain isolated and reversible. */
+:root {
+  --mai-bg: #08090d;
+  --mai-bg-2: #101116;
+  --mai-text: #f8f5ee;
+  --mai-text-soft: #bdb8ad;
+  --mai-border: rgba(247,195,87,.16);
+  --mai-border-strong: rgba(247,195,87,.26);
+  --mai-gold: #edb747;
+  --mai-gold-bright: #f9cf74;
+}
+html { scroll-padding-top: 100px; }
+body { background-color: var(--mai-bg); }
+.mai-app { overflow-x: clip; }
+.mai-app section[id] { scroll-margin-top: 100px; }
+.mai-app section, .mai-app section > div { min-width: 0; }
+.mai-app :is(img,svg,video) { max-width: 100%; }
+.mai-app img { height: auto; }
+.mai-app :is(a,button):focus-visible {
+  outline: 2px solid var(--mai-gold-bright);
+  outline-offset: 4px;
+}
+/* Harmonize outer section backgrounds without resetting interior card treatments. */
+.mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,
+.roadmap-section,.updates-section,.whitepaper-section,.faq-section,
+.community,.security-section) {
+  background: linear-gradient(180deg,#08090d,#101116 50%,#08090d) !important;
+}
+@media (max-width: 920px) {
+  .navbar, .mobile-menu, .language-selector__menu {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: rgba(9,12,20,.97);
+  }
+}
+@media (max-width: 760px) {
+  html { scroll-padding-top: 84px; }
+  .mai-app section[id] { scroll-margin-top: 84px; }
+  .hero { min-height: 0 !important; }
+  .hero__container, .hero__content, .hero__visual { min-width: 0; max-width: 100%; }
+  .hero__actions { max-width: 100%; }
+  /* The old -115px mobile offset could overlap the following section. */
+  #home .hero__contract {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    max-width: 100%;
+    margin: 16px auto 0;
+  }
+  #home .hero__contract-copy, #home .hero__contract-address {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+  }
+}
+@media (max-width: 760px), (prefers-reduced-motion: reduce) {
+  .hero__grid, .hero__glow, .hero__stars span,
+  .mai-3d-orbit, .mai-orbit-light, .mai-particle,
+  .mai-3d-scene__energy, .mai-3d-scene__halo,
+  .mining-core-orbit, .mining-core-particle {
+    animation: none !important;
+  }
+  .hero__glow { filter: blur(36px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
