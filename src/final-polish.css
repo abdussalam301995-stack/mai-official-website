@@ -238,3 +238,146 @@ body { background-color: var(--mai-bg); }
  .distribution-summary :is(.distribution-labels,.distribution-title) {color:var(--mai-text) !important;}
  .tokenomics-stat :is(strong,span) {position:relative !important;transform:none !important;opacity:1 !important;}
 }
+
+/* MAI unified design v2 — visual regression fixes from actual Android screenshots.
+   Scope to real section classes: override legacy mint panels and absolute bars. */
+:root {
+ --mai-brand-bg:#080b12; --mai-brand-panel:#111827; --mai-brand-panel-2:#192133;
+ --mai-brand-gold:#ffcc60; --mai-brand-cream:#fff9eb; --mai-brand-muted:#c7cad3;
+ --mai-brand-outline:rgba(255,204,96,.25);
+}
+.mai-app { background:#080b12 !important; color:var(--mai-brand-cream) !important; }
+.mai-app :is(.whitepaper-section,.tokenomics-section,.mining-section,.hero,.about-section,
+.roadmap-section,.updates-section,.faq-section,.community,.security-section) {
+ background:linear-gradient(180deg,#080b12,#111827 52%,#080b12) !important;
+}
+.mai-app :is(.whitepaper-main-card,.whitepaper-token-summary,.whitepaper-transparency,
+.whitepaper-vision,.whitepaper-topic-card,.whitepaper-document,
+.tokenomics-overview,.tokenomics-supply,.tokenomics-visual,.distribution-summary,
+.tokenomics-stats,.mining-intro-card,.mining-allocation-card,.process-card) {
+ background:linear-gradient(145deg,#1a2334,#101622) !important;
+ border:1px solid var(--mai-brand-outline) !important;
+ box-shadow:0 16px 45px rgba(0,0,0,.24) !important;
+}
+.mai-app :is(.whitepaper-main-card-shine,.whitepaper-summary-glow,.whitepaper-visual-glow,
+.whitepaper-glow,.whitepaper-glow-left,.whitepaper-glow-right,
+.whitepaper-distribution-bar::before,.whitepaper-distribution-bar::after) {
+ opacity:0 !important;pointer-events:none !important;
+}
+.mai-app :is(.whitepaper-heading-badge,.whitepaper-document-label,.whitepaper-meta,
+.whitepaper-status,.whitepaper-title-gradient,.whitepaper-heading h2 span,
+.whitepaper-transparency > div > span,.whitepaper-topic-icon,.whitepaper-topic-svg,
+.whitepaper-document-top span,.whitepaper-floating-data span,
+.whitepaper-document-logo,.whitepaper-vision h3 span,.whitepaper-summary-heading .section-label,
+.whitepaper-primary-button,.whitepaper-secondary-button) {
+ --mai-accent:var(--mai-brand-gold);
+}
+.mai-app :is(.whitepaper-heading h2 span,.whitepaper-title-gradient,
+.whitepaper-summary-heading h3 span,.whitepaper-document-label,.whitepaper-meta,
+.whitepaper-topic-icon,.whitepaper-topic-svg,.whitepaper-transparency > div > span,
+.whitepaper-document-top span,.whitepaper-floating-data span,.whitepaper-vision h3 span) {
+ color:var(--mai-brand-gold) !important;
+ -webkit-text-fill-color:var(--mai-brand-gold) !important;
+ background-image:none !important;
+}
+.mai-app :is(.whitepaper-heading p,.whitepaper-main-content p,
+.whitepaper-summary-heading p,.whitepaper-transparency p,.whitepaper-vision p,
+.whitepaper-topic-card p,.tokenomics-heading p,.mining-heading p,.process-card p) {
+ color:var(--mai-brand-muted) !important;opacity:1 !important;
+}
+.mai-app :is(.whitepaper-primary-button,.whitepaper-secondary-button) {
+ background:#1e2737 !important;color:var(--mai-brand-gold) !important;
+ border:1px solid var(--mai-brand-outline) !important;
+ box-shadow:none !important;
+}
+.mai-app .whitepaper-primary-button {
+ background:linear-gradient(135deg,#ffe3a0,#ffbe3a) !important;
+ color:#201704 !important;
+}
+/* Replace the broken animated distribution chart with ordinary cards.
+   The original 70/10/10/10 informational values are retained. */
+#whitepaper .whitepaper-distribution-bar {
+ display:grid !important;
+ grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+ position:relative !important;
+ width:100% !important;
+ max-width:100% !important;
+ height:auto !important;
+ min-height:0 !important;
+ gap:10px !important;
+ overflow:visible !important;
+ margin:28px 0 20px !important;
+ padding:0 !important;
+ background:none !important;
+ transform:none !important;
+}
+#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution {
+ position:relative !important;inset:auto !important;
+ transform:none !important;opacity:1 !important;visibility:visible !important;
+ width:auto !important;min-width:0 !important;max-width:100% !important;
+ height:auto !important;min-height:100px !important;
+ display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
+ gap:8px !important;padding:16px 8px !important;margin:0 !important;
+ border-radius:16px !important;border:1px solid var(--mai-brand-outline) !important;
+ background:linear-gradient(145deg,#242639,#181c2b) !important;
+ box-shadow:none !important;animation:none !important;
+ color:var(--mai-brand-cream) !important;
+}
+#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution :is(strong,span) {
+ display:block !important;position:static !important;inset:auto !important;
+ transform:none !important;opacity:1 !important;visibility:visible !important;
+ height:auto !important;width:auto !important;max-width:100% !important;
+ text-align:center !important;margin:0 !important;padding:0 !important;
+ background:none !important;box-shadow:none !important;
+ -webkit-text-fill-color:currentColor !important;
+}
+#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution strong {
+ font-size:clamp(23px,3.6vw,36px) !important;line-height:1.1 !important;
+ font-weight:800 !important;color:var(--mai-brand-gold) !important;
+}
+#whitepaper .whitepaper-distribution-bar > .whitepaper-distribution span {
+ color:var(--mai-brand-muted) !important;font-size:12px !important;line-height:1.3 !important;
+}
+#whitepaper .whitepaper-supply {
+ display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+ gap:10px !important;position:relative !important;width:100% !important;height:auto !important;
+ border:0 !important;background:none !important;padding:0 !important;
+}
+#whitepaper .whitepaper-supply > div:not(.whitepaper-supply-divider) {
+ display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
+ position:relative !important;inset:auto !important;transform:none !important;
+ min-width:0 !important;min-height:90px !important;
+ background:#161e2e !important;border:1px solid var(--mai-brand-outline) !important;
+ border-radius:14px !important;padding:12px 6px !important;
+}
+#whitepaper .whitepaper-supply-divider {display:none !important;}
+#whitepaper .whitepaper-supply :is(strong,span) {
+ display:block !important;position:static !important;transform:none !important;
+ width:auto !important;height:auto !important;margin:0 !important;opacity:1 !important;
+ text-align:center !important;
+}
+#whitepaper .whitepaper-supply strong {color:var(--mai-brand-gold) !important;font-size:22px !important;}
+#whitepaper .whitepaper-supply span {color:var(--mai-brand-muted) !important;font-size:11px !important;}
+/* Recolor the CSS-only illustrated whitepaper without destroying its document. */
+#whitepaper :is(.whitepaper-visual-glow,.whitepaper-orbit,.whitepaper-logo-ring,.whitepaper-document-light,
+.whitepaper-document-shadow,.whitepaper-energy-dot,.whitepaper-orbit-node) {
+ filter:none !important;box-shadow:none !important;animation:none !important;
+}
+#whitepaper .whitepaper-document {background:linear-gradient(150deg,#161e2b,#0c111c) !important;}
+#whitepaper .whitepaper-visual-glow {background:rgba(255,195,60,.09) !important;opacity:.3 !important;}
+#whitepaper :is(.whitepaper-orbit-node,.whitepaper-energy-dot) {background:var(--mai-brand-gold) !important;}
+#whitepaper .whitepaper-orbit {border-color:rgba(255,204,96,.24) !important;}
+@media(max-width:760px) {
+ #whitepaper .whitepaper-token-summary {padding:25px 16px !important;overflow:hidden !important;}
+ #whitepaper .whitepaper-distribution-bar,#whitepaper .whitepaper-supply {
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important;
+ }
+ #whitepaper .whitepaper-distribution-bar > .whitepaper-distribution {
+  min-height:100px !important;padding:12px 8px !important;
+ }
+ #whitepaper .whitepaper-document-visual {overflow:hidden !important;}
+ #whitepaper .whitepaper-main-card {padding:22px 16px !important;}
+ #whitepaper .whitepaper-main-content {min-width:0 !important;}
+ #whitepaper .whitepaper-summary-heading h3 {font-size:clamp(29px,7vw,43px) !important;line-height:1.15 !important;}
+ #whitepaper .whitepaper-supply > div:not(.whitepaper-supply-divider) {min-height:85px !important;}
+}
