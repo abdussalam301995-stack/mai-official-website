@@ -1,0 +1,178 @@
+/* MAI Network — responsive component layouts (no legacy App.css). */
+/* Header: compact cream glass-free navigation */
+.site-header{position:fixed;top:0;left:0;right:0;padding:14px 20px;z-index:1000;pointer-events:none}
+.navbar{position:relative;display:flex;align-items:center;justify-content:space-between;
+ gap:18px;width:min(1220px,100%);margin:0 auto;padding:12px 18px;
+ min-height:76px;background:#fffdf8;border:1px solid #e8d3ac;border-radius:22px;
+ box-shadow:0 12px 35px rgba(93,64,25,.12);pointer-events:auto}
+.navbar__brand,.navbar__logo,.navbar__brand-text,.navbar__actions,.navbar__links{
+ display:flex;align-items:center}
+.navbar__brand{gap:10px;text-decoration:none;flex:none}
+.navbar__logo{width:48px;height:48px;flex:none}
+.navbar__logo img{width:100%;height:100%;object-fit:contain}
+.navbar__brand-text{flex-direction:column;align-items:flex-start;gap:2px}
+.navbar__brand-text strong{font-size:20px;letter-spacing:.09em;color:#342309}
+.navbar__brand-text span{font-size:10px;letter-spacing:.25em;color:var(--gold);font-weight:800}
+.navbar__links{gap:clamp(10px,1.6vw,23px);flex-wrap:nowrap;justify-content:center}
+.navbar__links a{text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;color:#564735}
+.navbar__links a:hover{color:var(--gold)}
+.navbar__actions{gap:10px;flex:none}
+.navbar__launch{min-height:40px!important;padding:9px 13px!important;font-size:12px!important}
+.language-selector{position:relative}
+.language-selector__button{display:flex;align-items:center;gap:7px;min-height:42px;
+ padding:0 12px;background:#fff8e9;border:1px solid var(--stroke);
+ border-radius:12px;color:var(--ink);font-size:12px;font-weight:700}
+.language-selector__menu{position:absolute;right:0;top:calc(100% + 12px);width:225px;
+ max-height:60vh;overflow:auto;padding:7px;border:1px solid var(--stroke);border-radius:15px;
+ background:#fffdf8;box-shadow:var(--shadow);opacity:0;visibility:hidden;pointer-events:none;
+ transform:translateY(-7px);transition:opacity .15s,transform .15s;z-index:20}
+.language-selector__menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.language-selector__menu button{width:100%;border:0;background:transparent;border-radius:9px;
+ display:grid;grid-template-columns:28px 1fr 20px;align-items:center;text-align:left;
+ gap:6px;padding:9px;color:var(--ink)}
+.language-selector__menu button.active,.language-selector__menu button:hover{background:#fff2d6}
+.language-selector__menu button>span:nth-child(2){display:flex;flex-direction:column}
+.language-selector__menu button strong{font-size:13px}
+.language-selector__menu button small{font-size:11px}
+.mobile-toggle{display:none;width:43px;height:43px;flex:none;flex-direction:column;
+ align-items:center;justify-content:center;gap:5px;border:1px solid var(--stroke);
+ background:#fff6e6;border-radius:12px}
+.mobile-toggle span{width:20px;height:2px;background:#43301a;border-radius:2px;transition:transform .15s}
+.mobile-toggle.open span:first-child{transform:translateY(7px) rotate(45deg)}
+.mobile-toggle.open span:nth-child(2){opacity:0}
+.mobile-toggle.open span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:absolute;top:calc(100% + 8px);right:0;left:0;
+ padding:15px;background:#fffdf8;border:1px solid var(--stroke);border-radius:17px;
+ box-shadow:var(--shadow);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-7px);
+ transition:opacity .15s,transform .15s;z-index:15}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+.mobile-menu__links{display:grid;gap:3px}
+.mobile-menu__links a{display:flex;justify-content:space-between;padding:10px 12px;
+ text-decoration:none;color:var(--ink);font-weight:700;border-radius:9px}
+.mobile-menu__links a:hover{background:#fff2d6}
+.mobile-menu__languages{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+.mobile-menu__languages button{padding:8px 4px;background:#fff8e8;border:1px solid var(--stroke);
+ border-radius:9px;font-size:12px;color:var(--ink)}
+.mobile-menu__languages button.active{background:#ffe6af;border-color:#e1b761}
+.mobile-menu__launch{width:100%}
+.mai-app.rtl .language-selector__menu{right:auto;left:0}
+/* Hero */
+.hero{padding-top:175px!important;padding-bottom:72px!important}
+.hero__container{width:min(1160px,100%);margin:auto;display:grid;
+ grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:50px;align-items:center}
+.hero__content,.hero__visual{min-width:0}
+.hero__eyebrow{display:block!important;margin:18px 0 10px!important}
+.hero__title{margin:0 0 20px!important}
+.hero__title span{display:block}
+.hero__description{max-width:580px;margin-bottom:24px}
+.hero__actions{display:flex;flex-wrap:wrap;gap:10px;margin:27px 0 28px}
+.hero__network-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.hero__network-item{display:flex;align-items:center;gap:9px;padding:13px;min-width:0}
+.hero__network-icon{flex:none;display:grid;place-items:center;width:34px;height:34px;
+ color:var(--gold);background:#fff2d9;border-radius:11px}
+.hero__network-svg{width:23px;height:23px}
+.hero__mai-symbol{font-size:22px;font-weight:900}
+.hero__network-text{display:flex;flex-direction:column;min-width:0}
+.hero__network-text strong{font-size:13px;color:var(--ink)}
+.hero__network-text small{font-size:11px;line-height:1.2}
+.hero__network-shine,.hero__network-icon-glow{display:none}
+.hero__visual{display:flex;flex-direction:column;gap:14px;align-items:center}
+.mai-3d-scene{position:relative;display:grid;place-items:center;width:min(100%,440px);
+ aspect-ratio:1;min-height:0;overflow:visible;
+ background:radial-gradient(circle,rgba(255,211,135,.32),transparent 67%)}
+.mai-logo-stage{position:relative;z-index:5;width:66%;display:grid;place-items:center}
+.mai-hero-logo{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 19px rgba(121,78,19,.18))}
+.mai-3d-orbit{position:absolute;top:50%;left:50%;width:76%;height:76%;
+ border:1px solid rgba(199,128,24,.35);border-radius:50%;
+ transform:translate(-50%,-50%) rotate(24deg);pointer-events:none}
+.mai-3d-orbit--two{width:94%;height:52%;transform:translate(-50%,-50%) rotate(-25deg)}
+.mai-3d-orbit--three{width:52%;height:94%;transform:translate(-50%,-50%) rotate(24deg)}
+.mai-orbit-light{display:block;position:absolute;width:9px;height:9px;top:10%;left:24%;
+ background:#e5a234;border:2px solid #fff8e8;border-radius:50%}
+.mai-3d-scene__energy,.mai-3d-scene__halo,.mai-particle,.mai-logo-aura,.mai-logo-shine,
+.mai-hologram{display:none}
+.hero__contract{width:100%;padding:17px;text-align:center}
+.hero__contract-glow{display:none}
+.hero__contract-header{display:flex;align-items:center;justify-content:center;gap:10px;
+ font-size:12px;letter-spacing:.13em;color:var(--gold);font-weight:800;margin-bottom:10px}
+.hero__contract-copy{display:flex;align-items:center;width:100%;gap:10px;border:1px solid var(--stroke);
+ background:#fff8ed;padding:10px 12px;border-radius:12px;color:var(--ink)}
+.hero__contract-address{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+ font-weight:700;font-size:12px;text-align:left;color:#443b31}
+.hero__contract-copy-action{display:flex;gap:6px;align-items:center;flex:none;color:var(--gold)}
+.hero__copy-svg{width:20px;height:20px}
+.hero__contract-hint{display:block;margin-top:8px;color:var(--ink-soft);font-size:11px}
+.hero__scroll{display:none}
+/* About */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}
+.about-main-card{display:flex;flex-direction:column;gap:16px}
+.about-main-card__top,.info-top{display:flex;align-items:center;justify-content:space-between}
+.about-main-card__content{flex:1}
+.about-main-card__content p{font-size:16px}
+.about-network-line{display:flex;align-items:center;justify-content:center;gap:10px;
+ flex-wrap:wrap;margin-top:auto;padding:20px;background:#fff8ea;border-radius:14px}
+.about-network-node{display:grid;justify-items:center;gap:6px;text-align:center;flex:1;min-width:90px}
+.about-network-node__icon{width:48px;height:48px}
+.about-network-node__icon svg{width:28px}
+.about-energy-line{display:none}
+.about-small-cards{display:grid;gap:18px}
+.about-info-card{display:flex;flex-direction:column;gap:12px}
+.about-info-card h3,.about-info-card p{margin:0}
+.about-info-card__bottom{display:none}
+.ecosystem-flow{padding:25px;margin-top:20px}
+.ecosystem-flow__header{text-align:center;margin-bottom:20px}
+.flow-title{font-size:15px;font-weight:800;color:var(--gold)}
+.flow-items{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
+.flow-item{display:grid;justify-items:center;text-align:center;gap:7px;flex:1;min-width:110px;padding:12px}
+.flow-connector{color:#be8b3a;font-size:23px}
+.flow-icon{width:50px;height:50px}
+.ecosystem-flow__status{text-align:center;color:var(--ink-soft);font-size:13px;margin-top:15px}
+/* Mining */
+.mining-main-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mining-intro-card,.mining-allocation-card{display:flex;flex-direction:column;gap:16px}
+.mining-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mining-live-status,.mining-allocation-label{color:var(--gold);font-weight:800;font-size:12px}
+.mining-core-scene{position:relative;width:min(100%,240px);height:225px;margin:0 auto;display:grid;place-items:center}
+.mining-core{position:relative;z-index:3;width:116px;height:116px;display:grid;place-items:center;
+ border-radius:50%;background:linear-gradient(145deg,#ffe8aa,#f3b847);
+ border:8px solid #ffe6a0;box-shadow:0 8px 23px rgba(167,111,31,.15)}
+.mining-core__inner{width:65px;height:65px;display:grid;place-items:center;color:#67400e}
+.mining-core__inner svg{width:60px;height:60px}
+.mining-core-orbit{position:absolute;width:210px;height:170px;border:1px solid #dfbd7c;
+ border-radius:50%;transform:rotate(28deg);pointer-events:none}
+.mining-core-orbit--two{transform:rotate(-27deg)}
+.mining-core-orbit--three{width:175px;height:205px;transform:rotate(14deg)}
+.mining-core-orbit span{position:absolute;top:8px;left:32px;width:7px;height:7px;border-radius:50%;background:#ce943b}
+.mining-core-energy,.mining-core-particle{display:none}
+.mining-intro-content h3{margin:10px 0}
+.mining-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+.mining-tags span{padding:6px 9px;border-radius:8px;background:#fff1d5;color:var(--gold);
+ font-size:11px;font-weight:800}
+.allocation-visual{position:relative;display:grid;place-items:center;padding:16px}
+.allocation-circle{position:relative;width:min(260px,85%);aspect-ratio:1;display:grid;place-items:center}
+.allocation-svg{position:absolute;inset:0;width:100%;height:100%}
+.allocation-track{fill:none;stroke:#f1dfc3;stroke-width:15}
+.allocation-progress-ring{fill:none;stroke:#d99623;stroke-width:15;
+ stroke-dasharray:387 553;stroke-linecap:round;transform:rotate(-90deg);transform-origin:center}
+.allocation-inner{text-align:center;position:relative}
+.allocation-inner strong{display:block;font-size:48px;color:var(--gold)}
+.allocation-content{margin-top:auto}
+.allocation-bar{height:12px;background:#f6e9d5;border-radius:20px;overflow:hidden}
+.allocation-progress{height:100%;background:#d79c3c;border-radius:20px}
+.allocation-values,.allocation-total{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px}
+.mining-process{margin-top:55px}
+.process-header{text-align:center;margin-bottom:26px}
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.process-card{display:flex;flex-direction:column;align-items:flex-start;gap:13px;padding:23px;min-height:0}
+.process-card .process-number{align-self:flex-end}
+.process-icon{margin:0}
+.process-card :is(h4,p){margin:0}
+.process-card p{font-size:14px}
+.process-card__status{margin-top:auto;width:34px;height:3px;background:#e7ad50;border-radius:9px}
+.process-card__status>*{display:none}
+.process-connector{display:none}
+.mining-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:20px;margin-top:28px}
+.mining-stat{text-align:center;padding:10px;min-width:0}
+.mining-stat strong{display:block;color:var(--gold)!important;font-size:27px}
+.mining-stat span:last-child{color:var(--ink-soft);font-size:12px}
+.mining-stat__indicator,.stat-divider{display:none}
