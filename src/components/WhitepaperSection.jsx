@@ -1,3 +1,4 @@
+import maiLogo from "../assets/mai-logo.png";
 
 /*
   MAI NETWORK — WHITEPAPER SECTION (UPGRADED)
@@ -367,8 +368,11 @@ const WhitepaperSection = ({ t }) => {
 
                 <div className="whitepaper-document-center">
                   <div className="whitepaper-document-logo">
-                    <div className="whitepaper-logo-ring" />
-                    <span>M</span>
+                    <img src={maiLogo} alt="MAI Network emblem" width="76" height="76" decoding="async" />
+                  </div>
+
+                  <div className="whitepaper-document-seal">
+                    {w.officialDocument ?? "OFFICIAL DOCUMENT"}
                   </div>
 
                   <h4>WHITEPAPER</h4>
