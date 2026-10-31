@@ -90,3 +90,63 @@ body { background-color: var(--mai-bg); }
   .navbar__brand-text span { letter-spacing: .12em; }
   .navbar__actions { gap: 6px; }
 }
+
+/* Screenshot QA 2026-10-31: contract clipping, blank mobile cards, color islands. */
+#home .hero__visual { display: flex; flex-direction: column; align-items: center; }
+#home .hero__contract {
+  position: relative !important;
+  inset: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  z-index: 4;
+  width: min(100%, 540px);
+  max-width: 100%;
+  margin: 12px auto 0;
+}
+#home .hero__contract-copy { width: 100%; min-width: 0; }
+#home .hero__contract-address { min-width: 0; overflow-wrap: anywhere; word-break: break-all; }
+@media (max-width: 760px) {
+  #home .hero__visual { overflow: visible; width: 100%; }
+  #home .mai-3d-scene {
+    width: 100%;
+    max-width: 100%;
+    min-height: 310px !important;
+    height: 310px !important;
+    margin: 0 auto !important;
+    overflow: hidden;
+  }
+  #home .hero__contract {
+    width: 100% !important;
+    margin: 12px auto 28px !important;
+    padding: 15px !important;
+  }
+  #home .hero__contract-copy { display: flex; gap: 8px; align-items: center; }
+  #home .hero__contract-address { flex: 1 1 auto; font-size: 11px; line-height: 1.5; }
+  #home .hero__contract-copy-action { flex: 0 0 auto; }
+  #home .hero__network-info { max-width: 100%; }
+  .process-card { min-height: 0 !important; height: auto !important; padding-bottom: 26px !important; }
+  .process-grid { align-items: stretch; }
+  .mining-stats, .tokenomics-stats { height: auto !important; min-height: 0 !important; }
+  .whitepaper-main-card, .whitepaper-main-content { min-height: 0 !important; }
+  .whitepaper-document-visual { max-width: 100%; overflow: hidden; }
+  .whitepaper-document-wrapper { max-width: 100%; }
+  .mai-app :is(.mining-intro-card,.mining-allocation-card,.process-card,
+  .tokenomics-supply,.token-allocation-card,.tokenomics-stats,
+  .whitepaper-main-card,.whitepaper-topic-card,.whitepaper-vision,
+  .roadmap-card,.faq-card) {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+/* MAI gold accents must remain consistent even for prior mint-green overrides. */
+.mai-app :is(.whitepaper-heading h2 span,.whitepaper-document-label,
+.whitepaper-document-top span,.whitepaper-topic-icon,.whitepaper-topic-svg,
+.whitepaper-summary-heading .section-label,.whitepaper-document-logo,
+.whitepaper-vision h3 span,.whitepaper-token-summary .section-label) {
+  color: var(--mai-gold-bright) !important;
+}
+.mai-app :is(.whitepaper-visual-glow,.whitepaper-summary-glow,.whitepaper-topic-glow) {
+  opacity: .35;
+}
