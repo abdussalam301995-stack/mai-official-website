@@ -24,6 +24,7 @@ import "./styles/mai-foundation.css";
 import "./styles/mai-layout.css";
 import "./styles/mai-sections.css";
 import "./styles/mai-community-footer.css";
+import "./styles/mai-typography-effects.css";
 
 function App() {
   const [languageCode, setLanguageCode] = useState(() => {
