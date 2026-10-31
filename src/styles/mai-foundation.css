@@ -1,0 +1,143 @@
+/* MAI Network 2026 — foundation. No legacy cascade or !important patches. */
+:root{
+  font-family:Inter,"Noto Sans Myanmar","Noto Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bg:#fffaf0;--bg-alt:#fff5e5;--paper:#fffefd;--paper-soft:#fff8ea;
+  --ink:#292012;--ink-soft:#5f5548;--gold:#ad6811;--gold-bright:#e4a63d;
+  --gold-soft:#ffe7b6;--stroke:#e9d8bc;--shadow:0 14px 42px rgba(115,78,31,.075);
+  --radius:22px;color:var(--ink);background:var(--bg);font-synthesis:none;
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:105px}
+html,body,#root{margin:0;min-width:0;width:100%;min-height:100%;height:auto}
+body{background:var(--bg);color:var(--ink);overflow-x:clip}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}a{color:inherit}a,button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--gold-bright);outline-offset:3px}
+.mai-app{width:100%;min-height:100vh;background:var(--bg);overflow:visible}
+.mai-app section{position:relative;width:100%;padding:94px max(20px,env(safe-area-inset-left)) 96px;min-height:0;overflow:visible;isolation:isolate}
+.mai-app section:nth-of-type(even){background:var(--bg-alt)}
+.mai-app section:nth-of-type(odd){background:var(--bg)}
+.mai-app section[id]{scroll-margin-top:104px}
+.mai-app section>div:not([aria-hidden]){position:relative}
+.mai-app :is(h1,h2,h3,h4,p){margin-top:0}
+.mai-app :is(h1,h2,h3,h4){font-weight:800;color:var(--ink);line-height:1.17;letter-spacing:-.035em;overflow-wrap:break-word}
+.mai-app h1{font-size:clamp(42px,5.5vw,76px)}
+.mai-app h2{font-size:clamp(31px,4vw,52px)}
+.mai-app h3{font-size:clamp(23px,2.3vw,32px)}
+.mai-app h4{font-size:clamp(19px,2vw,24px)}
+.mai-app p{color:var(--ink-soft);line-height:1.7;font-size:clamp(15px,1.3vw,18px)}
+.mai-app small{color:var(--ink-soft);line-height:1.55}
+.mai-app :is(img,svg){max-width:100%}
+.mai-app :is(.about-container,.mining-container,.tokenomics-container,.roadmap-container,
+.updates-container,.whitepaper-container,.faq-container,.community__container,.security-container){
+ max-width:1160px;width:100%;margin:0 auto;
+}
+.mai-app :is(.about-heading,.mining-heading,.tokenomics-heading,.roadmap-heading,
+.updates-heading,.whitepaper-heading,.faq-heading,.community__heading,.security-heading){
+ max-width:850px;margin:0 auto 46px;text-align:center;
+}
+.mai-app :is(.about-heading,.mining-heading,.tokenomics-heading,.roadmap-heading,
+.updates-heading,.whitepaper-heading,.faq-heading,.community__heading,.security-heading) p{
+ max-width:730px;margin:18px auto 0;
+}
+.mai-app :is(.hero__title-gradient,.about-heading h2 span,.mining-heading h2 span,
+.tokenomics-heading h2 span,.roadmap-heading h2 span,.updates-heading h2 span,
+.whitepaper-heading h2 span,.whitepaper-title-gradient,.faq-heading h2 span,
+.community__title span,.security-heading h2 span,.whitepaper-vision h3 span){
+ color:var(--gold);background:none;-webkit-text-fill-color:currentColor;
+}
+.mai-app :is(.section-label,.hero__eyebrow,.hero__badge,.about-heading__badge,
+.mining-heading__badge,.updates-badge,.whitepaper-heading-badge,.whitepaper-document-label,
+.faq-section-label,.community__eyebrow,.community__section-label,.security-badge,
+.roadmap-vision-label,.mining-card-kicker){
+ display:inline-flex;align-items:center;gap:9px;color:var(--gold);font-weight:800;
+ font-size:12px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;
+}
+.mai-app :is(.hero__badge,.about-heading__badge,.mining-heading__badge,.updates-badge,
+.whitepaper-heading-badge,.faq-section-label,.security-badge){
+ padding:9px 15px;background:#fff3da;border:1px solid var(--stroke);border-radius:99px;
+}
+.mai-app :is(.hero__badge-dot,.hero__contract-dot,.about-heading__dot,.mining-heading__pulse,
+.updates-badge__dot,.whitepaper-heading-dot,.community__section-dot,.security-source__dot,
+.roadmap-vision-glow,.faq-trust-dot,.security-trust-dot,.community-contract__dot){
+ width:8px;height:8px;border-radius:50%;background:var(--gold-bright);display:inline-block;
+ box-shadow:0 0 0 4px rgba(228,166,61,.14);flex:none;
+}
+/* One modern surface for every primary card, never mint-on-cream or dark-on-cream. */
+.mai-app :is(.hero__network-item,.hero__contract,.about-main-card,.about-info-card,.ecosystem-flow,
+.mining-intro-card,.mining-allocation-card,.process-card,.mining-stats,.tokenomics-supply,
+.tokenomics-visual,.token-allocation-card,.tokenomics-stats,.distribution-summary,
+.roadmap-card,.roadmap-vision,.updates-card,.updates-bottom,
+.whitepaper-main-card,.whitepaper-topic-card,.whitepaper-token-summary,.whitepaper-transparency,
+.whitepaper-vision,.faq-info-card,.faq-item,.faq-trust-strip,.community-card,
+.community__access,.community-contract,.security-official-card,.security-warning-card,
+.security-trust-strip){
+ background:var(--paper);border:1px solid var(--stroke);border-radius:var(--radius);
+ box-shadow:var(--shadow);color:var(--ink);
+}
+.mai-app :is(.about-main-card,.about-info-card,.mining-intro-card,.mining-allocation-card,
+.process-card,.tokenomics-supply,.tokenomics-visual,.token-allocation-card,.roadmap-card,
+.roadmap-vision,.updates-card,.whitepaper-main-card,.whitepaper-topic-card,
+.whitepaper-token-summary,.whitepaper-transparency,.whitepaper-vision,
+.faq-info-card,.community__access,.security-official-card,.security-warning-card){
+ padding:28px;
+}
+.mai-app :is(.hero__network-item,.about-main-card,.about-info-card,.ecosystem-flow,
+.mining-intro-card,.mining-allocation-card,.process-card,.mining-stats,.tokenomics-supply,
+.tokenomics-visual,.token-allocation-card,.tokenomics-stats,.distribution-summary,.roadmap-card,
+.roadmap-vision,.updates-card,.updates-bottom,.whitepaper-main-card,.whitepaper-topic-card,
+.whitepaper-token-summary,.whitepaper-transparency,.whitepaper-vision,.faq-info-card,
+.faq-item,.community-card,.community__access,.community-contract,.security-official-card,
+.security-warning-card,.security-trust-strip,.faq-trust-strip)
+ :is(h2,h3,h4,strong){color:var(--ink)}
+.mai-app :is(.hero__network-item,.about-main-card,.about-info-card,.ecosystem-flow,
+.mining-intro-card,.mining-allocation-card,.process-card,.mining-stats,.tokenomics-supply,
+.tokenomics-visual,.token-allocation-card,.tokenomics-stats,.distribution-summary,.roadmap-card,
+.roadmap-vision,.updates-card,.updates-bottom,.whitepaper-main-card,.whitepaper-topic-card,
+.whitepaper-token-summary,.whitepaper-transparency,.whitepaper-vision,.faq-info-card,
+.faq-item,.community-card,.community__access,.community-contract,.security-official-card,
+.security-warning-card,.security-trust-strip,.faq-trust-strip) p{color:var(--ink-soft)}
+/* Remove expensive decorative layers instead of repainting every frame. */
+.mai-app :is(.hero__background,.about-background,.mining-background,.tokenomics-glow,
+.roadmap-glow,.updates-background,.whitepaper-future-bg,.faq-background,
+.community__background,.security-background,.mai-footer__glow,
+.about-card-shine,.about-card-orb,.about-info-card__glow,.about-info-card__shine,
+.flow-item__glow,.mining-card-light,.mining-card-shine,.process-card__glow,
+.process-card__shine,.mining-stats__glow,.allocation-outer-glow,.tokenomics-ring-glow,
+.roadmap-card-shine,.roadmap-card-glow,.roadmap-vision-glow,.updates-card__glow,
+.whitepaper-main-card-shine,.whitepaper-visual-glow,.whitepaper-topic-glow,
+.whitepaper-summary-glow,.whitepaper-transparency-light,.whitepaper-vision-grid,
+.whitepaper-vision-glow,.community-card__glow,.faq-info-glow){display:none}
+.mai-app :is(.mai-svg-icon,.mining-svg-icon,.tokenomics-svg-icon,.whitepaper-topic-svg,
+.security-shield svg){width:34px;height:34px;display:block;color:var(--gold)}
+.mai-app :is(.info-icon,.about-card-icon,.about-network-node__icon,.flow-icon,.process-icon,
+.allocation-card-icon,.roadmap-title-icon,.whitepaper-topic-icon,.whitepaper-transparency-icon,
+.security-shield,.faq-info-stat-icon,.community-card__icon){
+ width:60px;height:60px;flex:none;display:grid;place-items:center;
+ background:#fff1d3;color:var(--gold);border-radius:16px;border:1px solid #f0dbb3;
+}
+.mai-app :is(.hero__button,.navbar__launch,.mobile-menu__launch,.community__access-button,
+.updates-telegram-button,.faq-launch-button,.whitepaper-primary-button,
+.whitepaper-secondary-button,.security-source-link){
+ display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;
+ padding:12px 22px;text-decoration:none;border-radius:13px;font-size:14px;font-weight:800;
+ border:1px solid var(--stroke);background:var(--paper);color:var(--ink);text-align:center;
+ transition:transform .18s ease,background-color .18s ease;
+}
+.mai-app :is(.hero__button--primary,.navbar__launch,.mobile-menu__launch,
+.community__access-button--primary,.faq-launch-button,.whitepaper-primary-button,
+.updates-telegram-button){
+ background:linear-gradient(135deg,#ffe4a0,#f8bf52);color:#382309;border-color:#dfb16a;
+}
+.mai-app :is(.hero__button,.navbar__launch,.mobile-menu__launch,.community__access-button,
+.updates-telegram-button,.faq-launch-button,.whitepaper-primary-button,
+.whitepaper-secondary-button,.security-source-link):hover{transform:translateY(-2px)}
+.mai-app :is(.card-number,.info-number,.process-number,.mining-card-number,
+.tokenomics-card-number,.updates-card__number,.whitepaper-topic-number){
+ color:var(--gold);font-weight:800;letter-spacing:.08em;font-size:13px;
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ html{scroll-behavior:auto}
+}
