@@ -150,3 +150,91 @@ body { background-color: var(--mai-bg); }
 .mai-app :is(.whitepaper-visual-glow,.whitepaper-summary-glow,.whitepaper-topic-glow) {
   opacity: .35;
 }
+
+/* MAI final mobile correction: bright gold brand, crisp text, natural cards. */
+:root {
+ --mai-bg:#080a10; --mai-bg-2:#101520; --mai-text:#fffaf1;
+ --mai-text-soft:#d3d6df; --mai-gold:#ffbc35; --mai-gold-bright:#ffdb78;
+ --mai-border:rgba(255,200,85,.28); --mai-border-strong:rgba(255,200,85,.44);
+}
+.mai-app { color:var(--mai-text); font-synthesis:none; -webkit-font-smoothing:antialiased; }
+.mai-app :is(p,li,small) { color:var(--mai-text-soft); line-height:1.65; }
+.mai-app :is(h1,h2,h3,h4) { letter-spacing:-.025em; line-height:1.16; }
+.mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,.roadmap-section,
+.updates-section,.whitepaper-section,.faq-section,.community,.security-section) {
+ background:linear-gradient(180deg,#080a10 0%,#111622 55%,#080a10 100%) !important;
+}
+.mai-app :is(.whitepaper-title-gradient,.whitepaper-heading h2 span,.whitepaper-document-label,
+.whitepaper-document-top span,.whitepaper-topic-icon,.whitepaper-topic-svg,
+.whitepaper-document-logo,.whitepaper-vision h3 span,.whitepaper-summary-heading .section-label,
+.whitepaper-token-summary .section-label,.hero__title-gradient) {
+ color:var(--mai-gold-bright) !important;
+ background-image:none !important;
+ -webkit-text-fill-color:var(--mai-gold-bright) !important;
+}
+.mai-app :is(.whitepaper-main-card,.whitepaper-topic-card,.whitepaper-token-summary,
+.whitepaper-vision,.whitepaper-transparency,.mining-intro-card,.mining-allocation-card,
+.process-card,.tokenomics-supply,.token-allocation-card,.tokenomics-stats,
+.distribution-summary) {
+ background:linear-gradient(150deg,#171c2b,#0c101a) !important;
+ border-color:var(--mai-border) !important;
+}
+.mai-app :is(.whitepaper-primary-button,.hero__button--primary) {
+ background:linear-gradient(135deg,#ffe08a,#ffb52c) !important;
+ color:#201503 !important; border-color:#ffd16a !important;
+}
+.mai-app :is(.whitepaper-primary-button,.hero__button--primary) :is(span,svg) { color:inherit !important; }
+@media(max-width:768px) {
+ .mai-app :is(.hero,.about-section,.mining-section,.tokenomics-section,.roadmap-section,
+ .updates-section,.whitepaper-section,.faq-section,.community,.security-section) {
+   padding-left:16px !important; padding-right:16px !important;
+ }
+ .process-grid { display:grid !important;grid-template-columns:minmax(0,1fr) !important;gap:16px !important; }
+ .process-connector { display:none !important; }
+ .process-card {
+   display:flex !important;flex-direction:column !important;align-items:flex-start !important;
+   justify-content:flex-start !important; height:auto !important; min-height:0 !important;
+   padding:24px 22px !important;overflow:hidden !important;gap:8px !important;
+ }
+ .process-card > :is(.process-number,.process-icon,h4,p,.process-card__status) {
+   position:relative !important;inset:auto !important;transform:none !important;
+   opacity:1 !important;visibility:visible !important;filter:none !important;
+   z-index:3 !important;
+ }
+ .process-card > .process-card__glow,.process-card > .process-card__shine {
+   position:absolute !important;z-index:0 !important;pointer-events:none;
+ }
+ .process-card .process-icon { margin:6px 0 10px !important; }
+ .process-card h4 {display:block !important;color:#fffaf1 !important;
+   font-size:clamp(22px,5.8vw,28px) !important;margin:4px 0 6px !important;
+   line-height:1.22 !important;}
+ .process-card p {display:block !important;color:#d3d6df !important;
+   font-size:15px !important;line-height:1.65 !important;margin:0 !important;}
+ .process-card .process-number {align-self:flex-end !important;font-size:15px !important;
+   margin-bottom:-30px !important;color:#ffd46d !important;}
+ .process-card .process-card__status {margin-top:12px !important;}
+ .mining-stats,.tokenomics-stats {height:auto !important; min-height:0 !important;}
+ .mining-stats {display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:12px !important;padding:18px !important;}
+ .mining-stat {min-width:0 !important; padding:14px 8px !important;}
+ .mining-stat :is(strong,span) {position:relative !important;opacity:1 !important;visibility:visible !important;}
+ .stat-divider {display:none !important;}
+ .whitepaper-main-card {padding:24px 18px !important;}
+ .whitepaper-document-visual {max-width:100% !important; overflow:hidden !important;}
+ .whitepaper-document-wrapper {max-width:100% !important;}
+ .whitepaper-actions {display:grid !important;grid-template-columns:1fr !important;gap:12px !important;}
+ .whitepaper-actions a {width:100% !important;justify-content:center !important;}
+ .whitepaper-glow,.whitepaper-visual-glow {opacity:.12 !important;}
+ .whitepaper-orbit,.whitepaper-particles {animation:none !important;}
+ .distribution-bar {display:flex !important;gap:5px !important;overflow:hidden !important;
+   border-radius:12px !important;height:54px !important;}
+ .distribution-bar > div {position:relative !important;min-width:0 !important;
+   height:100% !important;display:flex !important;align-items:center !important;justify-content:center !important;
+   font-size:12px !important;overflow:hidden !important;}
+ .distribution-bar .distribution-mining {background:#ffc34a !important;color:#201503 !important;}
+ .distribution-bar .distribution-dex {background:#deaa3e !important;color:#201503 !important;}
+ .distribution-bar .distribution-community {background:#ffe297 !important;color:#201503 !important;}
+ .distribution-bar .distribution-founder {background:#b68430 !important;color:#fff !important;}
+ .distribution-summary :is(.distribution-labels,.distribution-title) {color:var(--mai-text) !important;}
+ .tokenomics-stat :is(strong,span) {position:relative !important;transform:none !important;opacity:1 !important;}
+}
