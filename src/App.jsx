@@ -20,8 +20,10 @@ import SecuritySection from "./components/SecuritySection";
 import UpdatesSection from "./components/UpdatesSection";
 import Footer from "./components/Footer";
 
-import "./App.css";
-import "./final-polish.css";
+import "./styles/mai-foundation.css";
+import "./styles/mai-layout.css";
+import "./styles/mai-sections.css";
+import "./styles/mai-community-footer.css";
 
 function App() {
   const [languageCode, setLanguageCode] = useState(() => {
