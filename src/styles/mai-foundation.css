@@ -2,7 +2,7 @@
 :root{
   font-family:Inter,"Noto Sans Myanmar","Noto Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif;
   --bg:#fffaf0;--bg-alt:#fff5e5;--paper:#fffefd;--paper-soft:#fff8ea;
-  --ink:#292012;--ink-soft:#5f5548;--gold:#ad6811;--gold-bright:#e4a63d;
+  --ink:#292012;--ink-soft:#5f5548;--gold:#975509;--gold-bright:#e4a63d;
   --gold-soft:#ffe7b6;--stroke:#e9d8bc;--shadow:0 14px 42px rgba(115,78,31,.075);
   --radius:22px;color:var(--ink);background:var(--bg);font-synthesis:none;
   text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
